@@ -16,7 +16,8 @@ module.exports = function(grunt) {
         bowerPath: "bower_components",
         libPath: "app/js/libs",
         appPath: "app/js/app",
-        distPath: "app/public",
+        distPath: "app/dist",
+        authPath: "api/auth",
 
         //-------------------------------------------------------------
         // Clean tasks.
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
 
         clean: {
             libs: "<%= libPath %>",
-            public: "<%= distPath %>"
+            dist: "<%= distPath %>"
         },
 
         //-------------------------------------------------------------
@@ -44,6 +45,7 @@ module.exports = function(grunt) {
                             "angular/angular.js",
                             "angular-loader/angular-loader.js",
                             "angular-route/angular-route.js",
+                            "requirejs-domready/domReady.js",
 
                             // Testing libraries
                             "chai/chai.js",
@@ -54,7 +56,7 @@ module.exports = function(grunt) {
                     }
                 ]// end files
             },// end lib
-            public: {
+            dist: {
                 files: [
                     {
                         cwd: "<%= bowerPath %>",
@@ -128,12 +130,12 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    script: "server/server.js",
+                    script: "server.js",
                 }
             },
             prod: {
                 options: {
-                    script: "server/server.js",
+                    script: "server.js",
                     node_env: "production"
                 }
             },
@@ -150,7 +152,7 @@ module.exports = function(grunt) {
 
         watch: {
             express: {
-                files: [ 'server/server.js' ],
+                files: [ 'server.js' ],
                 tasks: [ 'express:dev' ],
                 options: {
                     spawn: false
@@ -192,7 +194,7 @@ module.exports = function(grunt) {
     // Task: Build
     // ------------------------------------------------------------
 
-    grunt.registerTask('build', ['clean:libs', 'copy:libs', 'clean:public', 'copy:public', 'requirejs']);
+    grunt.registerTask('build', ['clean:libs', 'copy:libs', 'clean:dist', 'copy:dist', 'requirejs']);
 
     // ------------------------------------------------------------
     // Task: Test
@@ -208,35 +210,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('serve', ['build', 'express:dev', 'watch']);
     grunt.registerTask('default', ['build', 'express:dev', 'watch']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //-------------------------------------------------------------
-    // Clean tasks.
-    // ------------------------------------------------------------
-
-    //-------------------------------------------------------------
-    // Clean tasks.
-    // ------------------------------------------------------------
-
-
-
-
-
-
-
 
 
 
