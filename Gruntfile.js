@@ -202,7 +202,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('casper:test', ['express:dev', 'casper']);
     grunt.registerTask("test",        ["casper:test"]);
-    grunt.registerTask("check",       ["jshint", "test"]);
+    grunt.registerTask("check",       ["jshint"]);
 
     // ------------------------------------------------------------
     // Task: Default
