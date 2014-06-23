@@ -17,7 +17,11 @@ var app = express();
 // configuration ================================
 var db = require("./api/db.js");
 
-mongoose.connect(db.url);
+mongoose.connect(db.url, function(err) {
+    if(err) {
+        console.log('you have not bowed to the Mongod');
+    }
+});
 
 require('./api/auth/passport')(passport);
 
@@ -44,9 +48,8 @@ app.use(flash());
 
 // routes =======================================
 require("./api/routes/adminRoutes.js")(app, passport);
-//app.get('/admin', adminRoutes.collection);
-//app.use("/", express.static("app"));
-
+require("./api/routes/donorRoutes.js")(app);
+require("./api/routes/homeRoutes.js")(app);
 // start app ====================================
 
 app.listen(port);

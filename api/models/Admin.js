@@ -1,5 +1,6 @@
+/*jslint node: true */
 var mongoose = require("mongoose");
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcrypt-nodejs");
 var jwt = require("jwt-simple");
 var moment = require("moment");
 
@@ -12,7 +13,7 @@ var adminSchema = mongoose.Schema({
 });
 
 adminSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSynch(8), null);
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 adminSchema.methods.validPassword = function(password) {

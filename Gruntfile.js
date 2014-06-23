@@ -123,6 +123,8 @@ module.exports = function(grunt) {
                     src: [
                         "app/js/*.js",
                         "app/js/**/*.js",
+                        "api/*.js",
+                        "api/**/*.js",
                         "!app/js/libs/**/*.js",
                         "test/*/js/**/*.js"
                     ]// end src
@@ -172,7 +174,7 @@ module.exports = function(grunt) {
                 livereload: true
             },
             scripts: {
-                files: [ "app/js/app/**/*.js", "app/js/app/*.js" ],
+                files: [ "app/js/app/**/*.js", "app/js/app/*.js", "api/**/*.js" ],
                 tasks: [ "jshint" ],
                 options: {
                     spawn: false,
