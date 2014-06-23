@@ -53,6 +53,16 @@ module.exports = function(grunt) {
                             "mocha/mocha.js",
 
                         ]// end src
+                    },
+                    // copy hbs lib and dependencies
+                    {
+                        cwd: "<%= bowerPath %>/hbs",
+                        dest: "<%= libPath %>/hbs",
+                        expand: true,
+                        src: [
+                            "hbs/**",
+                            "hbs.js"
+                        ]
                     }
                 ]// end files
             },// end lib
@@ -78,8 +88,8 @@ module.exports = function(grunt) {
         requirejs: {
             app: {
                 options: {
-                    name: "config",
-                    baseUrl: "app/js",
+                    name: "app/app",
+                    baseUrl: "app/js/libs",
                     mainConfigFile: "app/js/config.js",
                     out: "<%= distPath %>/public.js",
                     optimize: "none"

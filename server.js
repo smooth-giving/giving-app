@@ -10,15 +10,16 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var flash = require("connect-flash");
 var port = process.env.PORT || 3000;
-var adminRoutes = require("./api/routes/adminRoutes");
 
 var app = express();
 //var jwtauth = require("./api/auth/jwtauth")(app);
 
 // configuration ================================
-var db = require("./api/db");
+var db = require("./api/db.js");
 
 mongoose.connect(db.url);
+
+require('./api/auth/passport')(passport);
 
 //var port = process.env.PORT || 3000;
 var secret = process.env.SECRET || "change-this-now";
@@ -26,9 +27,12 @@ var secret = process.env.SECRET || "change-this-now";
 //app.set('port', process.env.PORT || 3000);
 app.set(secret);
 
-app.use(bodyParser.json());
+app.use(bodyParser());
 app.use(morgan());
 app.use(cookieParser());
+app.use(express.static(__dirname + '/app/dist'));
+app.set('views', __dirname + '/app/js/app/templates');
+app.set('view engine', 'hbs');
 
 // required for passport
 app.use(session({ secret: "ilovepugs"}));
@@ -39,7 +43,7 @@ app.use(flash());
 
 
 // routes =======================================
-require("./app/routes/routes.js")(app, passport);
+require("./api/routes/adminRoutes.js")(app, passport);
 //app.get('/admin', adminRoutes.collection);
 //app.use("/", express.static("app"));
 

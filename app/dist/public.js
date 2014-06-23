@@ -1,3 +1,3 @@
 ;
-define("config", function(){});
+define("app/app", function(){});
 
