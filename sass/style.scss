@@ -6,7 +6,7 @@
 
 //import reset file to prefix vendor differences
 //================================================
-// @import "reset";
+@import "reset";
 
 //import config file with global variables.
 //================================================
@@ -15,5 +15,9 @@
 @import "typography";
 
 @import "buttons";
+
+@import "forms";
+
+@import "layouts/layouts";
 
 @import "modules/modules";

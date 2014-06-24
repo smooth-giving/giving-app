@@ -14,35 +14,38 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <form>
-      <fieldset>
-        <legend class="h5">Amount</legend>
-        <input type="number" name="amount" value="50">
-        <section>
-          <input type="radio" name="amount" value="25"> $25
-          <input type="radio" name="amount" value="75"> $75
-          <input type="radio" name="amount" value="100"> $100
-        </section>
-      </fieldset>
-      <fieldset>
-        <legend class="h5">Contact Information</legend>
-        <input placeholder="First Name">
-        <input placeholder="Last Name">
-        <input placeholder="Email">
-        <input placeholder="Phone Number">
-        <input placeholder="Address">
-        <input placeholder="City">
-        <input placeholder="State">
-        <input placeholder="Zip Code">
-      </fieldset>
-      <fieldset>
-        <legend class="h5">Payment Information</legend>
-        <input placeholder="Card Number">
-        <input placeholder="Expiry">
-        <input placeholder="CVC">
-      </fieldset>
-    </form>
-    <button class="btn btn-primary h4"> Submit</button>
-    <button class="btn btn-secondary h4"> Cancel </button>
+    <section class="client-payment">
+      <form>
+        <fieldset class="info-section">
+          <legend class="h5">Amount</legend>
+          <input type="number" name="amount" value="50">
+          <section>
+            <input type="radio" name="amount" value="25"> $25
+            <input type="radio" name="amount" value="75"> $75
+            <input type="radio" name="amount" value="100"> $100
+          </section>
+        </fieldset>
+        <fieldset>
+          <legend class="h5">Contact Information</legend>
+          <input placeholder="First Name">
+          <input placeholder="Last Name">
+          <input placeholder="Email">
+          <input placeholder="Phone Number">
+          <input placeholder="Address">
+          <input placeholder="City">
+          <input placeholder="State">
+          <input placeholder="Zip Code">
+        </fieldset>
+        <fieldset>
+          <legend class="h5">Payment Information</legend>
+          <input placeholder="Card Number">
+          <input placeholder="Expiry">
+          <input placeholder="CVC">
+        </fieldset>
+      </form>
+      <button class="btn btn-primary h4"> Submit</button>
+      <button class="btn btn-secondary h4"> Cancel </button>
+    </section>
+
   </body>
 </html>
