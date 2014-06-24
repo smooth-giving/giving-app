@@ -3,16 +3,17 @@ var Donor = require("../models/Donor");
 
 module.exports = function(app) {
 
-    app.get("api/donors", function(req, res) {
-        Donor.find(function(err, donors) {
+    app.get("/api/donors", function(req, res) {
+        res.setHeader("Content-Type", "application/json");
+        Donor.find({}, function(err, donors) {
             if(err) {
                 res.send(err);
             }
-            res.json(donors);
+            res.send(donors);
         });
     }); //end app.get("api/donors")
 
-    app.post("api/donors", function(req, res) {
+    app.post("/api/donors", function(req, res) {
         Donor.create({
             fName : req.body.fName,
             lName : req.body.lName,
