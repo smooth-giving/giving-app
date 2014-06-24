@@ -1,5 +1,9 @@
 @import "bourbon";
 
+//Using bourbon neat as the a built-in grid system.
+//================================================
+@import "neat";
+
 //import reset file to prefix vendor differences
 //================================================
 // @import "reset";
@@ -10,22 +14,7 @@
 
 @import "typography";
 
-@import "neat";
-
-@import "reset";
-
 @import "buttons";
 
-// body{
-//   background-color: #fff;
-//   font-size: em(16);
-// }
 
-body{
-  background-color: #fff;
-  font-size: em(16);
-}
 
-section{
-  @include outer-container;
-}

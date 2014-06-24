@@ -6,8 +6,10 @@
 
     &-#{$key}{
       background: $value;
+      border: 1px solid darken($value, 5%);
       &:hover{
         background: darken($value, 10%);
+        border: 1px solid darken($value, 15%);
       }
     }
   }
