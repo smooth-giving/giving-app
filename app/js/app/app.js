@@ -10,6 +10,9 @@ require("./controllers/smoothController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: "views/index.html",
+        })
         .when('/admin', {
             templateUrl: "views/admin.html",
             controller: "SmoothController"
