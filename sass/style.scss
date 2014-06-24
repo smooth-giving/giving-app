@@ -1,5 +1,7 @@
 @import "bourbon";
 
+@import "neat";
+
 @import "reset";
 
 @import "buttons";
@@ -8,4 +10,8 @@
 body{
   background-color: #fff;
   font-size: em(16);
+}
+
+section{
+  @include outer-container;
 }

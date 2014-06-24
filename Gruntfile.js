@@ -11,7 +11,8 @@ module.exports = function(grunt) {
             'public/stylesheets/style.css': 'sass/style.scss'
           },
           options:{
-            includePaths: require('node-bourbon').includePaths
+            includePaths: require('node-bourbon').includePaths,
+            includePaths: require('node-neat').includePaths
           }
         }
       },
