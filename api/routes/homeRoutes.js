@@ -20,13 +20,13 @@ module.exports = function(app) {
                 return (err);
             }
             if(donor) {
-                res.render("index.hbs", {message: req.flash("thank you message", "Thanks bro.")});
+                res.render("index.html", {message: req.flash("thank you message", "Thanks bro.")});
             }
         });
 
     });
 
     app.get("/", function(req, res) {
-        res.render("index.hbs");
+        res.render("index.html");
     });
 }; // end exports.create

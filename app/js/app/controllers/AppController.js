@@ -1,10 +1,9 @@
-angular.module("smoothApp")
-    .controller("SmoothCtrl", ["$scope", "donorFactory",
-        function($scope, donorFactory) {
+"use strict";
+
+module.exports = function(app) {
+    app.controller("SmoothCtrl", function($scope, donorFactory) {
             $scope.status;
             $scope.donors;
-
-            getDonors();
 
             function getDonors() {
                 donorFactory.getDonors()
@@ -12,7 +11,8 @@ angular.module("smoothApp")
                         $scope.donors = data;
                     })
                     .error(function(error) {
-                        $scope.status = "Unable to load donor data: " + error.message;
+                        $scope.status = "Where is your Mongod now?: " + error.message;
                     });
             };
-        }]);
+        });
+};

@@ -12,14 +12,12 @@
     "angular": "~1.2.17",
     "angular-route": "~1.2.17",
     "angular-loader": "~1.2.17",
-    "requirejs": "~2.1.14",
-    "hbs": "~0.8.1",
     "angular-base64": "~2.0.2",
-    "angular-resource": "~1.2.18"
+    "angular-resource": "~1.2.18",
+    "angular-cookies": "~1.2.18"
   },
   "devDependencies": {
     "mocha": "~1.20.1",
-    "chai": "~1.9.1",
-    "requirejs-domready": "~2.0.1"
+    "chai": "~1.9.1"
   }
 }

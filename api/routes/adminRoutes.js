@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
 
     app.get("/signup", function(req, res) {
         // render the page and pass in any flash data if it exists
-        res.render("signup.hbs", {message: req.flash("signupMessage")});
+        res.render("signup.html", {message: req.flash("signupMessage")});
     });
 
     // process the sign up form
@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
 
     // login page
     app.get("/login", function(req, res) {
-        res.render("login.hbs", {message: req.flash("loginMessage")});
+        res.render("login.html", {message: req.flash("loginMessage")});
     }); //end app.get("/login")
 
     // process the login form
@@ -38,7 +38,7 @@ module.exports = function(app, passport) {
 
     // profile of Admin
     app.get("/admin", isLoggedIn, function(req, res) {
-        res.render("admin.hbs", {
+        res.render("admin.html", {
             admin : req.admin
         });
     }); //end app.get("/profile")
