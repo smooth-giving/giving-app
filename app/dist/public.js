@@ -23606,35 +23606,33 @@ require("./../../bower_components/angular-cookies/angular-cookies.js");
 
 var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies" ]);
 
-require("./controllers/AppController.js")(smoothApp);
+require("./controllers/smoothController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
         .when('/admin', {
             templateUrl: "views/admin.html",
-            controller: "AppController"
+            controller: "SmoothController"
         })
         .otherwise({
             redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/AppController.js":7}],7:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/smoothController.js":7}],7:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
-    app.controller("SmoothCtrl", function($scope, donorFactory) {
-            $scope.status;
-            $scope.donors;
-
-            function getDonors() {
-                donorFactory.getDonors()
-                    .success(function(data) {
-                        $scope.donors = data;
-                    })
-                    .error(function(error) {
-                        $scope.status = "Where is your Mongod now?: " + error.message;
-                    });
-            };
+    app.controller("SmoothController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "/api/donors"
+            })
+            .success(function(data, status, headers, config) {
+                $scope.donors = data;
+            })
+            .error(function(data, status, headers, config) {
+                console.log(data);
+            });
         });
 };
 

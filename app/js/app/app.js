@@ -6,13 +6,13 @@ require('angular-cookies');
 
 var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies" ]);
 
-require("./controllers/AppController.js")(smoothApp);
+require("./controllers/smoothController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
         .when('/admin', {
             templateUrl: "views/admin.html",
-            controller: "AppController"
+            controller: "SmoothController"
         })
         .otherwise({
             redirectTo: "/"
