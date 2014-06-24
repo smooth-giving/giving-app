@@ -10,10 +10,22 @@
 
 @import "typography";
 
-@import "buttons";
+@import "neat";
 
+@import "reset";
+
+@import "buttons";
 
 // body{
 //   background-color: #fff;
 //   font-size: em(16);
 // }
+
+body{
+  background-color: #fff;
+  font-size: em(16);
+}
+
+section{
+  @include outer-container;
+}
