@@ -1,11 +1,19 @@
 @import "bourbon";
 
-@import "reset";
+//import reset file to prefix vendor differences
+//================================================
+// @import "reset";
+
+//import config file with global variables.
+//================================================
+@import "config";
+
+@import "typography";
 
 @import "buttons";
 
 
-body{
-  background-color: #fff;
-  font-size: em(16);
-}
+// body{
+//   background-color: #fff;
+//   font-size: em(16);
+// }
