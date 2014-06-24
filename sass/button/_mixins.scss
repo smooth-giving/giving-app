@@ -6,6 +6,9 @@
 
     &-#{$key}{
       background: $value;
+      &:hover{
+        background: darken($value, 10%);
+      }
     }
   }
 }
