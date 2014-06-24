@@ -1,2 +1,31 @@
 //typographic styles
 
+%default
+  font-family: $default-font-family;
+  color: #333;
+
+%bold-font
+  margin: 1.414em 0 0.5em;
+  font-weight: 700;
+  line-height: 1.2;
+
+%h1
+  @extend %bold-font;
+  margin-top: 0;
+  font-size: 6.854em;
+
+%h2
+  @extend %bold-font;
+  font-size: 4.236em;
+
+%h3
+  @extend %bold-font;
+  font-size: 2.618em;
+
+%h4
+  @extend %bold-font;
+  font-size: 1.618em;
+
+%small
+  font-size: 0.618em;
+
