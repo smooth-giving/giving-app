@@ -1,4 +1,15 @@
 .client-payment{
   @include outer-container;
   padding: 0.35em 0.625em;
+  @media (min-width: em(768)){
+    @include span-columns(8);
+    @include shift(2);
+  }
+  @media (min-width: em(960)){
+    @include span-columns(6);
+    @include shift(3);
+  }
+  .btn{
+
+  }
 }

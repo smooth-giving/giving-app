@@ -19,13 +19,11 @@
         <fieldset class="info-section">
           <legend class="h5">Amount</legend>
           <span>$ <span>
-          <input class="no-margin-top h3" type="number" name="amount" value="50" disabled>
-          <section>
-            <input type="radio" name="options" value="25"> <label for="radio-btn">$25</label>
-            <input type="radio" name="options" value="25"> <label for="radio-btn">$50</label>
-            <input type="radio" name="options" value="75"> <label for="radio-btn">$75</label>
-            <input type="radio" name="options" value="100"> <label for="radio-btn">$100</label>
-          </section>
+          <input class="form-full-width no-margin-top h3" type="number" name="amount" value="50" disabled>
+          <input id="radio1" type="radio" name="options" value="25"> <label for="radio1" class="form-span-3">$25</label>
+          <input id="radio2" type="radio" name="options" value="25" checked> <label for="radio2" class="form-span-3">$50</label>
+          <input id="radio3" type="radio" name="options" value="75"> <label for="radio3" class="form-span-3">$75</label>
+          <input id="radio4" type="radio" name="options" value="100"> <label for="radio4" class="form-span-3">$100</label>
         </fieldset>
         <fieldset>
           <legend class="h5">Contact Information</legend>
@@ -46,7 +44,7 @@
         </fieldset>
       </form>
       <button class="btn btn-primary h4"> Submit</button>
-      <button class="btn btn-secondary h4 no-margin-top"> Cancel </button>
+      <button class="btn btn-secondary h4"> Cancel </button>
     </section>
 
   </body>
