@@ -1,6 +1,6 @@
 .client-payment, .content-panel{
   @include outer-container;
-  padding: 4.236em 0.625em;
+  @include clearfix;
   //Media query for tablet size
   @include media(em(480)){
     @include span-columns(10);
@@ -14,9 +14,9 @@
       @include span-columns(5);
       @include omega();
       float: right;
-      &:last-child{
-        margin-left: 19.4172602%;
-      }
+    }
+    .btn-primary{
+      margin-left: 19.4172602%;
     }
   }
   //Media query for modern screen size

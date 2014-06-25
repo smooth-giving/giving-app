@@ -1,5 +1,32 @@
+@import ../ui_patterns/client_ui_patterns
+
 legend:after
   @include triangle(1.236em, #333, down)
   display: inline-block
   content: ""
   margin-left: 5px
+
+//For payment form
+.client-payment
+  padding: 4.236em 0.625em;
+
+//For modal module
+.cancel-modal
+  position: absolute
+  width: 100%
+  height: 120%
+  background-color: rgba(0, 0, 0, 0.8)
+  top: 0
+  left: 0
+  .content-panel
+    font-size: 16px
+    background-color: #FFFFFF
+    padding: 1.618em
+    margin-top: 16%
+  .btn-primary
+    margin-top: 0.618em
+  @include media(em(768))
+    .btn-secondary
+      margin-top: 0.618em
+
+
