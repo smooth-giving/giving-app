@@ -8,6 +8,17 @@ input
   padding-right: 10px
   padding-left: 10px
 
+input[name="amount"]
+  border: none
+  border-bottom: 1px solid #b3b3b3
+  height: auto
+  margin-top: -10px
+  margin-bottom: 0
+  font-weight: normal
+  color: $primary-color
+  &:before
+    content: "$"
+
 .form-full-width
   width: 100%
 
@@ -17,5 +28,8 @@ input
 .form-span-5
   @include span-columns(5)
 
-.form-span-2
-  @include span-columns(2)
+.form-span-4
+  @include span-columns(4)
+
+.form-span-3
+  @include span-columns(3)
