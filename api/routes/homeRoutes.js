@@ -23,10 +23,5 @@ module.exports = function(app) {
                 return res.send(donor);
             }
         });
-
     });
-
-    // app.get("/", function(req, res) {
-    //     res.render("index.html");
-    // });
 }; // end exports.create

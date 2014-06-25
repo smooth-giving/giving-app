@@ -23609,6 +23609,7 @@ var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies" ])
 require("./controllers/smoothController.js")(smoothApp);
 require("./controllers/donateController.js")(smoothApp);
 require("./controllers/thanksController.js")(smoothApp);
+require("./controllers/signupController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -23624,11 +23625,15 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/thanks.html",
             controller: "ThanksController"
         })
+        .when("/signup", {
+            templateUrl: "views/signup.html",
+            controller: "SignupController"
+        })
         .otherwise({
             redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":7,"./controllers/smoothController.js":8,"./controllers/thanksController.js":9}],7:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":7,"./controllers/signupController.js":8,"./controllers/smoothController.js":9,"./controllers/thanksController.js":10}],7:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23658,6 +23663,26 @@ module.exports = function(app) {
         });
 };
 },{}],8:[function(require,module,exports){
+module.exports = function(app) {
+    app.controller('SignupController', function($scope, $http, $base64, $cookies, $location, $log) {
+        $scope.signUp = function() {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $base64.encode($scope.admin.email + ':' + $scope.admin.password);
+            $http({
+                method: "GET",
+                url: '/api/admins',
+                data: {}
+            })
+            .success(function(data) {
+                $cookies.jwt = data.jwt;
+                $location.path('/admin');
+            })
+            .error(function(data) {
+                console.log(data);
+            });
+        }
+    });
+}
+},{}],9:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23675,7 +23700,7 @@ module.exports = function(app) {
         });
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23683,7 +23708,7 @@ module.exports = function(app) {
         $scope.message = "Thanks for the cash bro";
     });
 };// end module.exports
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23697,4 +23722,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[6,7,8,9,10])
+},{}]},{},[6,7,8,9,10,11])
