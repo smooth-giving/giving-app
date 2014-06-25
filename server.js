@@ -9,6 +9,7 @@ var methodOverride = require("method-override");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var flash = require("connect-flash");
+var hbs = require("express-hbs");
 var port = 8000 || process.env.PORT;
 
 var app = express();
@@ -34,7 +35,9 @@ app.set(secret);
 app.use(bodyParser());
 app.use(morgan());
 app.use(cookieParser());
-app.use(express.static(__dirname + '/app/dist'));
+app.use(express.static(__dirname + '/app/dist/'));
+app.set("views", __dirname + "/app/js/app/templates/");
+app.set("view engine", hbs);
 
 // required for passport
 app.use(session({ secret: "ilovepugs"}));

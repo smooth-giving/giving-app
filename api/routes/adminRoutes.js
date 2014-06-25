@@ -1,37 +1,60 @@
-'use strict';
+/*jslint node: true */
 
-var Admin = require('../models/Admin');
+function isLoggedIn(req, res, next) {
+    if(req.isAuthenticated()) {
+        return next();
+    }
+
+    res.redirect("/admin");
+}
 
 module.exports = function(app, passport) {
 
-    app.post("/api/admins", function(req, res) {
-        Admin.findOne({'basic.email': req.body.email}, function(err, admin) {
-            if(err) {
-                req.send(500, err);
-                return false;
-            }
-            if(admin) {
-                res.send(401, {'msg': 'A admin with that email already exists'});
-                return false;
-            }
-            var newAdmin = new Admin({});
-            newAdmin.basic.email = req.body.email;
-            newAdmin.basic.password = newAdmin.generateHash(req.body.password);
+    // sign up page
 
-            newAdmin.save(function(err, resNewAdmin) {
-                if(err) {
-                    res.send(500, err);
-                    return false;
-                }
-                res.json({'jwt_token': resNewAdmin.createToken(app)});
-            });
-        });
-    }); // end app.post
+    app.get("/signup", function(req, res) {
+        // render the page and pass in any flash data if it exists
+        res.render("signup.hbs", {message: req.flash("signupMessage")});
+    });
 
-    app.get("/api/admins",
-        passport.authenticate('basic', {session: false}),
-        function(req, res) {
-            res.json({'jwt' : req.user.createToken(app)});
-        }
-    ); // end app.get
-};// end module.exports
+    // process the sign up form
+    app.post("/signup", passport.authenticate("local-signup", {
+        successRedirect: "/#/admin",
+        failureRedirect: "/signup",
+        failureFlash: true
+    }));
+
+    // login page
+    app.get("/login", function(req, res) {
+        res.render("login.hbs", {message: req.flash("loginMessage")});
+    }); //end app.get("/login")
+
+    // process the login form
+    app.post("/login", passport.authenticate("local-login", {
+        successRedirect : "/#/admin",
+        failureRedirect : "/login",
+        failureFlash : true
+    })); // end app.post("/login")
+
+    // profile of Admin
+    // app.get("/admin", isLoggedIn, function(req, res) {
+    //     res.render("admin.html", {
+    //         admin : req.admin
+    //     });
+    // }); //end app.get("/profile")
+
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.redirect("/");
+    }); // end app.get("/logout")
+
+}; // end module.exports
+
+
+
+
+
+
+
+
+
