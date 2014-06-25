@@ -5,10 +5,17 @@ input
   border-radius: 3px
   border: 1px solid #b3b3b3
   margin-top: 14px
-
-input:nth-child(2)
-  margin-top: 0
+  padding-right: 10px
+  padding-left: 10px
 
 .form-full-width
   width: 100%
 
+.form-half-width
+  @include span-columns(6)
+
+.form-span-5
+  @include span-columns(5)
+
+.form-span-2
+  @include span-columns(2)
