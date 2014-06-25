@@ -1,3 +1,5 @@
+@import form/form
+
 input
   height: 44px
   -webkit-border-radius: 3px
@@ -7,14 +9,6 @@ input
   margin-top: 14px
   padding-right: 10px
   padding-left: 10px
-  &[name="amount"]
-    border: none
-    border-bottom: 1px solid #b3b3b3
-    height: auto
-    margin-top: -10px
-    margin-bottom: 0
-    font-weight: normal
-    color: $primary-color
 
 // Change the look'n'feel of labels (which are adjacent to radiobuttons).
 //Add some margin, padding to label
@@ -31,17 +25,4 @@ input[type=radio]
   &:checked + label
     background-color: #ddd
 
-.form-full-width
-  width: 100%
 
-.form-half-width
-  @include span-columns(6)
-
-.form-span-5
-  @include span-columns(5)
-
-.form-span-4
-  @include span-columns(4)
-
-.form-span-3
-  @include span-columns(3)

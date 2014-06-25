@@ -1,15 +1,27 @@
-.client-payment{
+.client-payment, .content-panel{
   @include outer-container;
-  padding: 0.35em 0.625em;
-  @media (min-width: em(768)){
+  padding: 4.236em 0.625em;
+  //Media query for tablet size
+  @include media(em(480)){
+    @include span-columns(10);
+    @include shift(1);
+  }
+  //Media query for old computers and landscape tablet
+  @include media(em(768)){
     @include span-columns(8);
     @include shift(2);
+    .btn{
+      @include span-columns(5);
+      @include omega();
+      float: right;
+      &:last-child{
+        margin-left: 19.4172602%;
+      }
+    }
   }
-  @media (min-width: em(960)){
+  //Media query for modern screen size
+  @include media(em(960)){
     @include span-columns(6);
     @include shift(3);
-  }
-  .btn{
-
   }
 }

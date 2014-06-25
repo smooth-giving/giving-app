@@ -18,34 +18,48 @@
       <form>
         <fieldset class="info-section">
           <legend class="h5">Amount</legend>
-          <span>$ <span>
-          <input class="form-full-width no-margin-top h3" type="number" name="amount" value="50" disabled>
-          <input id="radio1" type="radio" name="options" value="25"> <label for="radio1" class="form-span-3">$25</label>
-          <input id="radio2" type="radio" name="options" value="25" checked> <label for="radio2" class="form-span-3">$50</label>
-          <input id="radio3" type="radio" name="options" value="75"> <label for="radio3" class="form-span-3">$75</label>
-          <input id="radio4" type="radio" name="options" value="100"> <label for="radio4" class="form-span-3">$100</label>
+          <lable class="display-amount full-width no-margin-top h3"> $50 </lable>
+          <section>
+            <input id="radio1" type="radio" name="options" value="25">
+            <label for="radio1" class="span-3">$25</label>
+            <input id="radio2" type="radio" name="options" value="25" checked>
+            <label for="radio2" class="span-3">$50</label>
+            <input id="radio3" type="radio" name="options" value="75">
+            <label for="radio3" class="span-3">$75</label>
+            <input id="radio4" type="radio" name="options" value="100">
+            <label for="radio4" class="span-3">$100</label>
+          </section>
+
         </fieldset>
         <fieldset>
           <legend class="h5">Contact Information</legend>
-          <input class="form-half-width no-margin-top" placeholder="First Name">
-          <input class="form-half-width omega no-margin-top" placeholder="Last Name">
-          <input class="form-half-width" placeholder="Email">
-          <input class="form-half-width omega" placeholder="Phone Number">
-          <input class="form-full-width"  placeholder="Address">
-          <input class="form-span-5" placeholder="City">
-          <input class="form-span-3" placeholder="State">
-          <input class="form-span-4" placeholder="Zip Code">
+          <input class="half-width no-margin-top" placeholder="First Name">
+          <input class="half-width omega no-margin-top" placeholder="Last Name">
+          <input class="half-width" placeholder="Email">
+          <input class="half-width omega" placeholder="Phone Number">
+          <input class="full-width"  placeholder="Address">
+          <input class="span-5" placeholder="City">
+          <input class="span-3" placeholder="State">
+          <input class="span-4" placeholder="Zip Code">
         </fieldset>
         <fieldset>
           <legend class="h5">Payment Information</legend>
-          <input class="form-full-width no-margin-top" placeholder="Card Number">
-          <input class="form-half-width" placeholder="Expiry">
-          <input class="form-half-width omega" placeholder="CVC">
+          <input class="full-width no-margin-top" placeholder="Card Number">
+          <input class="half-width" placeholder="Expiry">
+          <input class="half-width omega" placeholder="CVC">
         </fieldset>
       </form>
       <button class="btn btn-primary h4"> Submit</button>
       <button class="btn btn-secondary h4"> Cancel </button>
     </section>
 
+    <div class="cancel-modal">
+      <section class="content-panel">
+        <h2 class="h2">Are you sure?</h2>
+        <p>Offendit perfecto eum at. Illud tractatos ea sea, in diam tacimates petentium nam, cum mutat denique te. Ad probo essent usu. Sea ut soleat phaedrum posidonium, eum ea duis civibus. Ei splendide mediocritatem mel.</p>
+        <button class="btn btn-primary h4"> Submit</button>
+        <button class="btn btn-secondary h4"> Cancel </button>
+      </section>
+    </div>
   </body>
 </html>
