@@ -23607,18 +23607,57 @@ require("./../../bower_components/angular-cookies/angular-cookies.js");
 var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies" ]);
 
 require("./controllers/smoothController.js")(smoothApp);
+require("./controllers/donateController.js")(smoothApp);
+require("./controllers/thanksController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
-        .when('/admin', {
+        .when("/", {
+            templateUrl: "views/donate.html",
+            controller: "DonateController"
+        })
+        .when("/admin", {
             templateUrl: "views/admin.html",
             controller: "SmoothController"
+        })
+        .when("/thanks", {
+            templateUrl: "views/thanks.html",
+            controller: "ThanksController"
         })
         .otherwise({
             redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/smoothController.js":7}],7:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":7,"./controllers/smoothController.js":8,"./controllers/thanksController.js":9}],7:[function(require,module,exports){
+"use strict";
+
+module.exports = function(app) {
+    app.controller("DonateController", function($scope, $http, $location, $log) {
+            $scope.donor = {
+                "fName" : "",
+                "lName" : "",
+                "address" : "",
+                "city" : "",
+                "state" : "",
+                "zipcode" : "",
+                "phone" : "",
+                "email" : "",
+                "donationAmount" : "",
+                "created" : ""
+            };
+            $scope.saveDonor = function() {
+                $http.post("/api/donors", $scope.donor)
+                    .success(function(data, status, header, config) {
+                        console.log("this should be working son");
+                        $location.path("/thanks")
+                    })
+                    .error(function(data) {
+                        $log.warn(data);
+                    });
+            };
+        });
+};
+},{}],8:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23636,7 +23675,15 @@ module.exports = function(app) {
         });
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
+"use strict";
+
+module.exports = function(app) {
+    app.controller("ThanksController", function($scope) {
+        $scope.message = "Thanks for the cash bro";
+    });
+};// end module.exports
+},{}],10:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23650,4 +23697,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[6,7,8])
+},{}]},{},[6,7,8,9,10])

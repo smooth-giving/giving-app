@@ -1,0 +1,27 @@
+<div data-ng-controller="DonateController">
+
+        <label>Donation Amount</label>
+        <input type="text" name="donationAmount" ng-model="donor.donationAmount"><br>
+        <label>first name</label>
+        <input type="text" name="fName" ng-model="donor.fName"><br>
+        <label>last name</label>
+        <input type="text" name="lName" ng-model="donor.lName"><br>
+        <label>address</label>
+        <input type="text" name="address" ng-model="donor.address"><br>
+        <label>city</label>
+        <input type="text" name="city" ng-model="donor.city"><br>
+        <label>state</label>
+        <input type="text" name="state" ng-model="donor.state"><br>
+        <label>zipcode</label>
+        <input type="text" name="zipcode" ng-model="donor.zipcode"><br>
+        <label>phone</label>
+        <input type="text" name="phone" ng-model="donor.phone"><br>
+        <label>email</label>
+        <input type="text" name="email" ng-model="donor.email"><br>
+
+        <input type="hidden" name="created" ng-model="donor.created">
+
+
+        <button ng-click="saveDonor()">Donate</button>
+
+</div>

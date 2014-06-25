@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var Donor = require("../models/Donor");
 
 module.exports = function(app) {
-    app.post("/", function(req, res) {
+    app.post("/api/donors", function(req, res) {
         new Donor({
             fName : req.body.fName,
             lName : req.body.lName,
@@ -20,13 +20,13 @@ module.exports = function(app) {
                 return (err);
             }
             if(donor) {
-                res.render("index.html", {message: req.flash("thank you message", "Thanks bro.")});
+                return res.send(donor);
             }
         });
 
     });
 
-    app.get("/", function(req, res) {
-        res.render("index.html");
-    });
+    // app.get("/", function(req, res) {
+    //     res.render("index.html");
+    // });
 }; // end exports.create

@@ -35,7 +35,6 @@ app.use(bodyParser());
 app.use(morgan());
 app.use(cookieParser());
 app.use(express.static(__dirname + '/app/dist'));
-app.set('views', __dirname + '/app/js/app/templates');
 
 // required for passport
 app.use(session({ secret: "ilovepugs"}));
