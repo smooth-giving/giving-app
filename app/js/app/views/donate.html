@@ -1,5 +1,5 @@
 <div data-ng-controller="DonateController">
-
+    <form>
         <label>Donation Amount</label>
         <input type="text" name="donationAmount" ng-model="donor.donationAmount"><br>
         <label>first name</label>
@@ -21,7 +21,6 @@
 
         <input type="hidden" name="created" ng-model="donor.created">
 
-
         <button ng-click="saveDonor()">Donate</button>
-
+    </form>
 </div>
