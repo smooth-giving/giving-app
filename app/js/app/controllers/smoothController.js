@@ -7,6 +7,7 @@ module.exports = function(app) {
                 url: "/api/donors"
             })
             .success(function(data, status, headers, config) {
+                console.dir(data);
                 $scope.donors = data;
             })
             .error(function(data, status, headers, config) {

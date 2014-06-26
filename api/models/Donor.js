@@ -10,7 +10,7 @@ var donorSchema = mongoose.Schema({
     zipcode : String,
     phone : String,
     email : String,
-    donationAmount : String,
+    donationAmount : Number,
     created : { type: Date, default: Date.now}
 });
 

@@ -1,6 +1,9 @@
 <div data-ng-controller="SmoothController">
-    <h3>Donors</h3>
-    <div data-ng-repeat="donor in donors">
-        <p>{{donor.lName}}, {{donor.fName}}</p>
-    </div>
+    <h3>Donors Angular Frodo</h3>
+    <button>Money</button>
+    <ul>
+        <li data-ng-repeat="donor in donors | orderBy:donationAmount">
+            {{donor.lName}}, {{donor.fName}}, {{donor.donationAmount}}, {{donor.created | date: 'shortDate'}}
+        </li>
+    </ul>
 </div>

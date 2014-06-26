@@ -25,6 +25,6 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             controller: "ThanksController"
         })
         .otherwise({
-            //redirectTo: "/"
+            redirectTo: "/"
         });
 }]); // end smoothApp.config

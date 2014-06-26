@@ -23625,7 +23625,7 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             controller: "ThanksController"
         })
         .otherwise({
-            //redirectTo: "/"
+            redirectTo: "/"
         });
 }]); // end smoothApp.config
 },{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":7,"./controllers/smoothController.js":9,"./controllers/thanksController.js":10}],7:[function(require,module,exports){
@@ -23669,6 +23669,7 @@ module.exports = function(app) {
                 url: "/api/donors"
             })
             .success(function(data, status, headers, config) {
+                console.dir(data);
                 $scope.donors = data;
             })
             .error(function(data, status, headers, config) {
