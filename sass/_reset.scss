@@ -377,7 +377,7 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
     border: none;
     margin: 0;
-    padding: 0.35em 0 0.75em;
+    padding: 0.382em 0 1.618em;
 }
 
 /**
@@ -422,14 +422,4 @@ table {
 td,
 th {
     padding: 0;
-}
-
-/* box-sizing
-========================================================================= */
-// Reset block elements to box-sizing to substract paddings and margins.
-
-*{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
