@@ -5,3 +5,8 @@
 .btn
   @extend %btn
   @include buttoncss($btn-style)
+
+.tab
+  @extend %tab
+  .tablist &:nth-child(2)
+    margin-left: -5px

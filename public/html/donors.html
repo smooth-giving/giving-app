@@ -14,12 +14,12 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <header>
-      <a href="" class=""></a>
+     <header class="admin-header full-width">
+      <a class="hd-icon icon-list pull-left" role="button"></a>
       <p>Admin Panel</p>
-      <a href="" class=""></a>
+      <a class="hd-icon icon-export pull-right" role="button"></a>
     </header>
-    <nav class="side-nav span-3">
+    <!-- <nav class="side-nav span-3">
       <section>
         <img class="logo-svg" src="../img/Smooth_Giving_Logo.svg" alt="Smooth Giving Logo"/>
       </section>
@@ -30,26 +30,137 @@
           <li>SETTINGS</li>
           <li>LOG OUT</li>
         </ul>
-      </menu>
-      <!--button class="btn btn-primary">Log Out</button-->
-    </nav>
-    <ul role="menu">
-      <li>Search</li>
-      <li>Sort</li>
-    </ul>
+      </menu> -->
+      <!--button class="btn btn-primary">Log Out</button
+    </nav> -->
+    <div class="option-group clearfix">
+      <ul class="tablist" role="tablist">
+        <li class="tab" role="tab">Search</li>
+        <li class="tab" role="tab">Sort</li>
+      </ul>
+    </div>
     <main>
-      <ul>
-        <li>
-          <!--Profile image-->
-          <aside><img src=""></aside>
-          <section>
-            <h3>Donor Name</h3>
-            <a
-          </section>
+      <ul class="donors-list">
+        <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+          <div class="clearfix">
+            <!--Profile image-->
+            <aside class="span-3">
+              <figure class="profile-img">
+                <img src="../img/laura.jpg" property="image">
+              </figure>
+            </aside>
+            <section class="donor-info half-width">
+              <h3 class="info" property="name">Donor Name</h3>
+              <p class="info full-width" property="telephone">(206)271-8279</p>
+              <span class="info full-width" property="email">this@email.com </span>
+              <address property="address" typeof="PostalAddress">
+                <p class="info" property="streetAddress">
+                  1412 1st Ave
+                </p>
+                <span property="addressLocality">Seattle</span>,
+                <span property="addressRegion">WA</span>
+                <span property="postalCode">98052</span>
+              </address>
+            </section>
+            <aside class="span-3 h4">
+              $8.00
+            </aside>
+          </div>
+          <!-- <ul role="tablist" class="tablist full-width">
+            <li role="tab" class="tab"><a href="mailto:emailaddress">Email</a></li>
+            <li role="tab" class="tab"><a href="tel:1-800-123-1234">Phone</a></li>
+          </ul> -->
         </li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+          <div class="clearfix">
+            <!--Profile image-->
+            <aside class="span-3">
+              <figure class="profile-img">
+                <img src="../img/laura.jpg" property="image">
+              </figure>
+            </aside>
+            <section class="donor-info half-width">
+              <h3 class="info" property="name">Donor Name</h3>
+              <p class="info full-width" property="telephone">(206)271-8279</p>
+              <span class="info full-width" property="email">this@email.com </span>
+              <address property="address" typeof="PostalAddress">
+                <p class="info" property="streetAddress">
+                  1412 1st Ave
+                </p>
+                <span property="addressLocality">Seattle</span>,
+                <span property="addressRegion">WA</span>
+                <span property="postalCode">98052</span>
+              </address>
+            </section>
+            <aside class="span-3 h4">
+              $8.00
+            </aside>
+          </div>
+          <!-- <ul role="tablist" class="tablist full-width">
+            <li role="tab" class="tab"><a href="mailto:emailaddress">Email</a></li>
+            <li role="tab" class="tab"><a href="tel:1-800-123-1234">Phone</a></li>
+          </ul> -->
+        </li>
+        <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+          <div class="clearfix">
+            <!--Profile image-->
+            <aside class="span-3">
+              <figure class="profile-img">
+                <img src="../img/laura.jpg" property="image">
+              </figure>
+            </aside>
+            <section class="donor-info half-width">
+              <h3 class="info" property="name">Donor Name</h3>
+              <p class="info full-width" property="telephone">(206)271-8279</p>
+              <span class="info full-width" property="email">this@email.com </span>
+              <address property="address" typeof="PostalAddress">
+                <p class="info" property="streetAddress">
+                  1412 1st Ave
+                </p>
+                <span property="addressLocality">Seattle</span>,
+                <span property="addressRegion">WA</span>
+                <span property="postalCode">98052</span>
+              </address>
+            </section>
+            <aside class="span-3 h4">
+              $8.00
+            </aside>
+          </div>
+          <!-- <ul role="tablist" class="tablist full-width">
+            <li role="tab" class="tab"><a href="mailto:emailaddress">Email</a></li>
+            <li role="tab" class="tab"><a href="tel:1-800-123-1234">Phone</a></li>
+          </ul> -->
+        </li>
+        <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+          <div class="clearfix">
+            <!--Profile image-->
+            <aside class="span-3">
+              <figure class="profile-img">
+                <img src="../img/laura.jpg" property="image">
+              </figure>
+            </aside>
+            <section class="donor-info half-width">
+              <h3 class="info" property="name">Donor Name</h3>
+              <p class="info full-width" property="telephone">(206)271-8279</p>
+              <span class="info full-width" property="email">this@email.com </span>
+              <address property="address" typeof="PostalAddress">
+                <p class="info" property="streetAddress">
+                  1412 1st Ave
+                </p>
+                <span property="addressLocality">Seattle</span>,
+                <span property="addressRegion">WA</span>
+                <span property="postalCode">98052</span>
+              </address>
+            </section>
+            <aside class="span-3 h4">
+              $8.00
+            </aside>
+          </div>
+          <!-- <ul role="tablist" class="tablist full-width">
+            <li role="tab" class="tab"><a href="mailto:emailaddress">Email</a></li>
+            <li role="tab" class="tab"><a href="tel:1-800-123-1234">Phone</a></li>
+          </ul> -->
+        </li>
       </ul>
     </main>
   </body>

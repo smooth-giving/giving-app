@@ -1,0 +1,27 @@
+.option-group
+  @include span-columns(10)
+  @include shift(1)
+
+.profile-img
+  margin: 0 auto
+  width: 70px
+  height: 70px
+  border-radius: 50%
+  border: 3px #ddd solid
+  overflow: hidden
+
+.donor-item
+  border-bottom: 1px #eee solid
+  cursor: pointer
+  display: block
+  padding: 1em
+  &:nth-child(2n)
+    background-color: #eee
+  &:hover
+    background-color: darken(#eee, 5%)
+  .h4
+    margin-top: 0.618em
+    color: #555
+
+.info
+  margin: 0 auto

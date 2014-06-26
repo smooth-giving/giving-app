@@ -181,6 +181,7 @@ sub {
 
 img {
     border: 0;
+    width: 100%;
 }
 
 /**
@@ -422,4 +423,8 @@ table {
 td,
 th {
     padding: 0;
+}
+
+address{
+  font-style: normal;
 }
