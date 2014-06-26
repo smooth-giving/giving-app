@@ -2,14 +2,14 @@
 var mongoose = require("mongoose");
 
 var donorSchema = mongoose.Schema({
-    fName : String,
-    lName : String,
-    address : String,
-    city : String,
-    state : String,
-    zipcode : String,
-    phone : String,
-    email : String,
+    fName : { type: String, trim: true},
+    lName : { type: String, trim: true},
+    address : { type: String, trim: true},
+    city : { type: String, trim: true},
+    state : { type: String, trim: true, uppercase: true},
+    zipcode : { type: String, trim: true},
+    phone : { type: String, trim: true},
+    email : { type: String, trim: true},
     donationAmount : { type: Number},
     created : { type: Date, default: Date.now}
 });

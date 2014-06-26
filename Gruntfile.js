@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         },
         browserify: {
             all: {
-                src: "app/js/**/*.js",
+                src: ["app/js/**/*.js", "app/bower_components/ng-stripe-payments/lib/ng-stripe-payments.js"],
                 dest: "app/dist/public.js"
             },
             options: {

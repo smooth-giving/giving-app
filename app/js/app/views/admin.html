@@ -6,13 +6,14 @@
     <ul>
         <li data-ng-repeat="donor in donors | orderBy:predicate:reverse" ng-click="showDonorDetails = !showDonorDetails">
             {{donor.lName}}, {{donor.fName}}, {{donor.donationAmount | currency}}, {{donor.created | date: 'shortDate'}}
-            <div ng-show="showDonorDetails">
+            <!-- <div ng-show="showDonorDetails">
                 {{donor.address}},{{donor.city}},{{donor.state}},{{donor.zipcode}},{{donor.phone}},{{donor.email}}
-            </div>
-            <button ng-click="showDetails(lName)">Show Details</button>
+            </div> -->
+            <button ng-click="showDetails(donor.lName)">Show Details</button>
         </li>
     </ul>
-    <div>
-        {{donorDetails.lName}}
+    <div data-ng-show="showLargeDetails">
+        <p data-ng-repeat="details in donorDetails">This should be the name: {{donorDetails.lName}}</p>
+
     </div>
 </div>

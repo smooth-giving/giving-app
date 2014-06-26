@@ -1,10 +1,11 @@
-require('angular/angular');
-require('angular-route');
-require('angular-resource');
-require('angular-base64');
-require('angular-cookies');
+require("angular/angular");
+require("angular-route");
+require("angular-resource");
+require("angular-base64");
+require("angular-cookies");
+require("ng-stripe-payments");
 
-var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies" ]);
+var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies", "ngStripePayments" ]);
 
 require("./controllers/smoothController.js")(smoothApp);
 require("./controllers/donateController.js")(smoothApp);

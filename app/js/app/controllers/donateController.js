@@ -24,6 +24,15 @@ module.exports = function(app) {
                     .error(function(data) {
                         $log.warn(data);
                     });
-            };
+            }; // end saveDonor
+            $scope.handleStripe = function(status, response) {
+                if(response.err) {
+                    console.log(response.err);
+                } else {
+                    global.token = response.id;
+                    console.log("Bilbo's token is: " + global.token);
+                    $location.path("/thanks");
+                }
+            }; // end handleStripe
         });
 };

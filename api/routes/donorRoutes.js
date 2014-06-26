@@ -4,12 +4,14 @@ var Donor = require("../models/Donor");
 module.exports = function(app) {
 
     app.get("/api/donors/:id", function(req, res) {
+        console.log("top of the get request");
         res.setHeader("Content-Type", "application/json");
-        Donor.findOne({"lName" : req.params.id}, function(err, data) {
+        Donor.find({"lName" : req.params.id}, function(err, data) {
             if(err) {
                 res.send(500, {error: err});
                 return false;
             }
+            console.dir(data);
             res.send(data);
         });
     }); //end app.get("api/donors/:id:")

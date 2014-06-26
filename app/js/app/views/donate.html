@@ -23,4 +23,16 @@
 
         <button ng-click="saveDonor()">Donate</button>
     </form>
+    <form stripe-form="handleStripe" name="smoothForm">
+        <label for="">Card Number</label>
+        <input type="text" name="number" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type">
+
+        <label for="">Expiry</label>
+        <input type="text" ng-model="expiry" payments-validate="expiry" payments-format="expiry">
+
+        <label for="">CVC</label>
+        <input type="text" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type">
+
+        <button type="submit" ng-click="saveDonor()">Submit</button>
+    </form>
 </div>

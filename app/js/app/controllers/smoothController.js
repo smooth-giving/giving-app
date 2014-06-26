@@ -15,15 +15,23 @@ module.exports = function(app) {
             });
             $scope.predicate = "-lName";
             $scope.showDonorDetails = false;
-
+            $scope.showLargeDetails = false;
             $scope.showDetails = function(id) {
-                $http.get("/api/donors" + id)
-                    .success(function(data, stauts, headers, config) {
+                $http({
+                    method: "GET",
+                    url: "/api/donors/" + id
+                })
+                .success(function(data, stauts, headers, config) {
+                        console.log(id);
+                        console.log(data);
                         $scope.donorDetails = data;
+                        console.log("Details are: " + $scope.donorDetails);
+                        $scope.showLargeDetails = true;
                     })
                     .error(function(data, status, headers, config) {
                         console.log(data);
                     });
             };
+
         });
 };

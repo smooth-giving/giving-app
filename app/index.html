@@ -9,6 +9,11 @@
     <body data-ng-app="smoothApp">
         <h2>Hello Frodo Angular Index</h2>
         <div data-ng-view></div>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
         <script src="public.js"></script>
+        <script>
+            Stripe.setPublishableKey('pk_test_MslWzkifHVs1wdclvdlf26Rb');
+        </script>
     </body>
 </html>
