@@ -9,6 +9,8 @@
   "node"          : false,
   "rhino"         : false,
   "couch"         : false,
+  "angular"       : false,
+  "repeater"      : false,
   "wsh"           : false,   // Windows Scripting Host.
 
   // Libraries (predefined globals).

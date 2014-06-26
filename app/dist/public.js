@@ -23628,7 +23628,27 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":7,"./controllers/smoothController.js":9,"./controllers/thanksController.js":10}],7:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./controllers/donateController.js":8,"./controllers/smoothController.js":10,"./controllers/thanksController.js":11}],7:[function(require,module,exports){
+"use strict";
+
+module.exports = function(app) {
+    app.controller("DetailsController", function($scope, $http) {
+        $scope.showDetails = function(id) {
+            $http({
+                method: "GET",
+                url: "/api/donors" + id
+            })
+            .success(function(data, stauts, headers, config) {
+                $scope.donorDetails = data;
+            })
+            .error(function(data, status, headers, config) {
+                console.log(data);
+            });
+        };
+
+    }); // end app.controller
+};
+},{}],8:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23657,9 +23677,9 @@ module.exports = function(app) {
             };
         });
 };
-},{}],8:[function(require,module,exports){
-
 },{}],9:[function(require,module,exports){
+
+},{}],10:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23669,16 +23689,27 @@ module.exports = function(app) {
                 url: "/api/donors"
             })
             .success(function(data, status, headers, config) {
-                console.dir(data);
                 $scope.donors = data;
             })
             .error(function(data, status, headers, config) {
                 console.log(data);
             });
+            $scope.predicate = "-lName";
+            $scope.showDonorDetails = false;
+
+            $scope.showDetails = function(id) {
+                $http.get("/api/donors" + id)
+                    .success(function(data, stauts, headers, config) {
+                        $scope.donorDetails = data;
+                    })
+                    .error(function(data, status, headers, config) {
+                        console.log(data);
+                    });
+            };
         });
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23686,7 +23717,7 @@ module.exports = function(app) {
         $scope.message = "Thanks for the cash bro";
     });
 };// end module.exports
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 module.exports = function(app) {
@@ -23700,4 +23731,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[6,7,8,9,10,11])
+},{}]},{},[6,7,8,9,10,11,12])

@@ -1,3 +1,4 @@
+/*jslint node: true */
 "use strict";
 
 module.exports = function(app) {
@@ -18,7 +19,7 @@ module.exports = function(app) {
                 $http.post("/api/donors", $scope.donor)
                     .success(function(data, status, header, config) {
                         console.log("this should be working son");
-                        $location.path("/thanks")
+                        $location.path("/thanks");
                     })
                     .error(function(data) {
                         $log.warn(data);

@@ -1,9 +1,18 @@
 <div data-ng-controller="SmoothController">
     <h3>Donors Angular Frodo</h3>
-    <button>Money</button>
+    <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
+    <button data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Money</button>
+    <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button>
     <ul>
-        <li data-ng-repeat="donor in donors | orderBy:donationAmount">
-            {{donor.lName}}, {{donor.fName}}, {{donor.donationAmount}}, {{donor.created | date: 'shortDate'}}
+        <li data-ng-repeat="donor in donors | orderBy:predicate:reverse" ng-click="showDonorDetails = !showDonorDetails">
+            {{donor.lName}}, {{donor.fName}}, {{donor.donationAmount | currency}}, {{donor.created | date: 'shortDate'}}
+            <div ng-show="showDonorDetails">
+                {{donor.address}},{{donor.city}},{{donor.state}},{{donor.zipcode}},{{donor.phone}},{{donor.email}}
+            </div>
+            <button ng-click="showDetails(lName)">Show Details</button>
         </li>
     </ul>
+    <div>
+        {{donorDetails.lName}}
+    </div>
 </div>

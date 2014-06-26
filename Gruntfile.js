@@ -1,4 +1,5 @@
-'use strict';
+/*jslint node: true */
+"use strict";
 
 process.env.PHANTOMJS_EXECUTABLE = process.env.PHANTOMJS_EXECUTABLE || '/usr/local/opt/nvm/v0.10.28/bin/phantomjs';
 
@@ -10,7 +11,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            all: ["Gruntfile.js", "server.js", "api/**/*.js", "app/**/*.js"]
+            all: ["Gruntfile.js", "server.js", "api/**/*.js", "app/js/**/*.js", "!app/bower_components/**/*.js"]
         },
         simplemocha: {
             options: {
@@ -105,9 +106,9 @@ module.exports = function(grunt) {
     grunt.registerTask('test:acceptance',['express:dev','casper']);
     grunt.registerTask('test:api','simplemocha');
     grunt.registerTask('test',['test:acceptance','test:api']);
-    grunt.registerTask('default', ['jshint', 'test']);
+    grunt.registerTask('default', ['jshint']);
     grunt.registerTask('build',['clean', 'browserify', 'copy:main']);
-}// end module.exports
+};// end module.exports
 
 
 

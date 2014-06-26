@@ -3,6 +3,17 @@ var Donor = require("../models/Donor");
 
 module.exports = function(app) {
 
+    app.get("/api/donors/:id", function(req, res) {
+        res.setHeader("Content-Type", "application/json");
+        Donor.findOne({"lName" : req.params.id}, function(err, data) {
+            if(err) {
+                res.send(500, {error: err});
+                return false;
+            }
+            res.send(data);
+        });
+    }); //end app.get("api/donors/:id:")
+
     app.get("/api/donors", function(req, res) {
         res.setHeader("Content-Type", "application/json");
         Donor.find({}, function(err, donors) {
