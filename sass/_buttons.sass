@@ -10,5 +10,15 @@
   margin: 5px auto
 .tab
   @extend %tab
-  .tablist &:nth-child(2)
+  cursor: pointer
+  &:nth-child(n+2)
     margin-left: -5px
+  &:hover
+    background-color: $primary-color
+    color: #FFFFFF
+
+.active
+  background-color: darken($primary-color, 10%)
+  color: #FFFFFF
+
+
