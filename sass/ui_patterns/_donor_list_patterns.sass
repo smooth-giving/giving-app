@@ -1,6 +1,7 @@
+//For the search and sort tab
 .option-group
-  @include span-columns(10)
-  @include shift(1)
+  width: 100%
+  margin: 0 auto
 
 .profile-img
   margin: 0 auto
@@ -10,12 +11,13 @@
   border: 3px #ddd solid
   overflow: hidden
 
+//For donor information
 .donor-item
   border-bottom: 1px #eee solid
   cursor: pointer
   display: block
   padding: 1em
-  &:nth-child(2n)
+  &:nth-child(2n+1)
     background-color: #eee
   &:hover
     background-color: darken(#eee, 5%)
@@ -25,3 +27,9 @@
 
 .info
   margin: 0 auto
+
+//For side nav
+.side-nav-list li
+  display: block
+  padding: 1em 0.618em
+  border-bottom: 1px solid

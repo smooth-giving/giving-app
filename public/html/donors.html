@@ -15,32 +15,27 @@
   </head>
   <body>
      <header class="admin-header full-width">
-      <a class="hd-icon icon-list pull-left" role="button"></a>
-      <p>Admin Panel</p>
-      <a class="hd-icon icon-export pull-right" role="button"></a>
+      <a class="hd-icon icon-list" role="button"></a>
+      <p class="h4">Admin Panel</p>
+      <a class="hd-icon icon-export" role="button"></a>
     </header>
-    <!-- <nav class="side-nav span-3">
+    <!-- <nav class="side-nav">
       <section>
         <img class="logo-svg" src="../img/Smooth_Giving_Logo.svg" alt="Smooth Giving Logo"/>
       </section>
-      <menu class="admin-panel">
+      <menu class="side-nav-list">
         <ul>
-          <li>DONORS</li>
-          <li>REPORTS</li>
-          <li>SETTINGS</li>
+          <li class="icon-users">DONORS</li>
+          <li class="icon-bars2">REPORTS</li>
+          <li class="icon-cog2">SETTINGS</li>
           <li>LOG OUT</li>
         </ul>
-      </menu> -->
-      <!--button class="btn btn-primary">Log Out</button
+      </menu>
     </nav> -->
-    <div class="option-group clearfix">
-      <ul class="tablist" role="tablist">
-        <li class="tab" role="tab">Search</li>
-        <li class="tab" role="tab">Sort</li>
-      </ul>
-    </div>
+
+    <input type="search" class="full-width omega-top" placeholder="Search">
     <main>
-      <ul class="donors-list">
+      <ul class="donors-list omega-top  ">
         <li class="donor-item" vocab="http://schema.org/" typeof="Person">
           <div class="clearfix">
             <!--Profile image-->
@@ -54,9 +49,9 @@
               <p class="info full-width" property="telephone">(206)271-8279</p>
               <span class="info full-width" property="email">this@email.com </span>
               <address property="address" typeof="PostalAddress">
-                <p class="info" property="streetAddress">
+                <!-- <p class="info" property="streetAddress">
                   1412 1st Ave
-                </p>
+                </p> -->
                 <span property="addressLocality">Seattle</span>,
                 <span property="addressRegion">WA</span>
                 <span property="postalCode">98052</span>
@@ -84,9 +79,9 @@
               <p class="info full-width" property="telephone">(206)271-8279</p>
               <span class="info full-width" property="email">this@email.com </span>
               <address property="address" typeof="PostalAddress">
-                <p class="info" property="streetAddress">
+                <!-- <p class="info" property="streetAddress">
                   1412 1st Ave
-                </p>
+                </p> -->
                 <span property="addressLocality">Seattle</span>,
                 <span property="addressRegion">WA</span>
                 <span property="postalCode">98052</span>
@@ -114,9 +109,9 @@
               <p class="info full-width" property="telephone">(206)271-8279</p>
               <span class="info full-width" property="email">this@email.com </span>
               <address property="address" typeof="PostalAddress">
-                <p class="info" property="streetAddress">
+                <!-- <p class="info" property="streetAddress">
                   1412 1st Ave
-                </p>
+                </p> -->
                 <span property="addressLocality">Seattle</span>,
                 <span property="addressRegion">WA</span>
                 <span property="postalCode">98052</span>
@@ -144,9 +139,9 @@
               <p class="info full-width" property="telephone">(206)271-8279</p>
               <span class="info full-width" property="email">this@email.com </span>
               <address property="address" typeof="PostalAddress">
-                <p class="info" property="streetAddress">
+                <!-- <p class="info" property="streetAddress">
                   1412 1st Ave
-                </p>
+                </p> -->
                 <span property="addressLocality">Seattle</span>,
                 <span property="addressRegion">WA</span>
                 <span property="postalCode">98052</span>
@@ -163,5 +158,11 @@
         </li>
       </ul>
     </main>
+    <div class="option-group clearfix">
+      <ul class="tablist" role="tablist">
+        <li class="tab" role="tab">Search</li>
+        <li class="tab" role="tab">Sort</li>
+      </ul>
+    </div>
   </body>
 </html>
