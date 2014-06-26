@@ -1,4 +1,4 @@
-.admin-login, .admin-dashboard
+.admin-login
   position: absolute
   left: 50%
   top: 45%
@@ -8,12 +8,14 @@
   -o-transform: translate(-50%, -50%)
   transform: translate(-50%, -50%)
 
+.admin-login-form
+  margin-top: 25%
 .logo-svg
-  display:block
-  margin:20% auto
+  display: block
+  margin: auto
 
 .admin-legend
-  display:none
+  display: none
 
 .password-reset
   display: block
@@ -21,3 +23,61 @@
   margin-top: 10%
   width: 100%
   color: gray
+
+
+//admin dashboard
+
+.admin-dashboard
+  @include outer-container
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -moz-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  -o-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  width: 100%
+  max-width: 34em
+
+.admin-panel
+  @include span-columns(8)
+  @include shift(2)
+  padding:0
+
+.dashboard-menu
+  list-style-type: none
+  padding: 0
+
+.icon-users, .icon-bars2, .icon-cog
+  color:white
+  text-decoration:none
+
+.icon-users:before, .icon-bars2:before, .icon-cog:before
+  padding-right: 10%
+  font-size: 3em
+  vertical-align: middle
+  text-decoration: none
+  color: white
+
+.dashboard-btn
+  @include span-columns(6)
+  @include omega(4n)
+  height: 4.5em
+  width: 100%
+  text-decoration: none
+  text-align: center
+  line-height: 0
+  padding-right: 10%
+  padding-top: 2em
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  border: 1px solid gray
+  background-color: #b3b3b3
+  color: white
+  margin-top: 14px
+
+.logout
+  @include span-columns(8)
+  @include shift(2)
