@@ -7,6 +7,8 @@
   -ms-transform: translate(-50%, -50%)
   -o-transform: translate(-50%, -50%)
   transform: translate(-50%, -50%)
+  width: 100%
+  max-width: 20em
 
 .admin-login-form
   margin-top: 25%
@@ -43,6 +45,7 @@
 .admin-panel
   @include span-columns(8)
   @include shift(2)
+  margin-top: 15%
   padding:0
 
 .dashboard-menu
@@ -77,7 +80,11 @@
   background-color: #b3b3b3
   color: white
   margin-top: 14px
+  &:hover
+    background-color: darken(#b3b3b3, 10%)
+
 
 .logout
   @include span-columns(8)
   @include shift(2)
+  margin-top: 10%
