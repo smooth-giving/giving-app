@@ -1,4 +1,34 @@
-<div data-ng-controller="ReportsController">
-    <h2>Reports page YO!</h2>
-    <h3>{{message}}</h3>
+<div class="admin-reports" data-ng-controller="ReportsController">
+    <section class="data-viz" row-span="6">
+        <div id="general-report" class="chart">Donations Overview</div>
+    </section>
+    <aside data-ng-repeat="detail in donorDetails | limitTo: 1">
+        <table class="report-breakdown">
+            <tr>
+                <td class="numeric-value">{{count}}</td>
+            </tr>
+            <tr>
+                <td class="value-designation">Donations</td>
+            </tr>
+            <tr>
+                <td class="numeric-value">{{totalCash | currency}}</td>
+            </tr>
+            <tr>
+                <td class="value-designation">Revenue</td>
+            </tr>
+            <tr >
+                <td class="numeric-value">{{average | currency}}</td>
+            </tr>
+            <tr>
+                <td class="value-designation">Avg. Donation</td>
+            </tr>
+            <tr>
+                <td class="numeric-value">$15K</td>
+            </tr>
+            <tr>
+                <td class="value-designation">Goal</td>
+            </tr>
+        </table>
+      </aside>
 </div>
+

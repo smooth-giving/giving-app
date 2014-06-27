@@ -3,9 +3,10 @@
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) {
         return next();
+        conosole.log("admin is logged in");
     }
 
-    res.redirect("/#/dashboard");
+    res.redirect("/");
 }
 
 module.exports = function(app, passport) {

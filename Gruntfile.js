@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: "app/",
-                        src: ["*.css", "*.html", "img/**/*.svg", "!Gruntfile.js", "fonts/**/*"],
+                        src: ["css/**/*.css", "*.html", "img/**/*.svg", "!Gruntfile.js", "fonts/**/*"],
                         dest: "app/dist/",
                         flatten: false,
                         filter: "isFile"
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         },
         browserify: {
             all: {
-                src: ["app/js/**/*.js", "app/bower_components/ng-stripe-payments/lib/ng-stripe-payments.js"],
+                src: ["app/js/**/*.js", "app/bower_components/nv.d3/*.js", "app/bower_components/ng-stripe-payments/lib/ng-stripe-payments.js", "app/bower_components/d3/d3.js"],
                 dest: "app/dist/public.js"
             },
             options: {

@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 
 var donorSchema = mongoose.Schema({
     fName : { type: String, trim: true},
-    lName : { type: String, trim: true},
+    lName : { type: String, trim: true, uppercase: true},
     address : { type: String, trim: true},
     city : { type: String, trim: true},
     state : { type: String, trim: true, uppercase: true},

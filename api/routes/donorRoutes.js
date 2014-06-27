@@ -9,6 +9,7 @@ module.exports = function(app) {
         Donor.find({"lName" : req.params.id}, function(err, data) {
             if(err) {
                 res.send(500, {error: err});
+                console.log("express no go bro");
                 return false;
             }
             console.dir(data);

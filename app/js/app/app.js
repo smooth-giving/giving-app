@@ -5,6 +5,7 @@ require("angular-base64");
 require("angular-cookies");
 require("ng-stripe-payments");
 
+
 var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies", "ngStripePayments" ]);
 
 require("./controllers/smoothController.js")(smoothApp);
@@ -27,7 +28,7 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/dashboard.html",
             controller: "DashboardController"
         })
-        .when("/reports", {
+        .when("/reports/:id", {
             templateUrl: "views/reports.html",
             controller: "ReportsController"
         })
@@ -36,6 +37,6 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             controller: "ThanksController"
         })
         .otherwise({
-            redirectTo: "/"
+            //redirectTo: "/"
         });
 }]); // end smoothApp.config

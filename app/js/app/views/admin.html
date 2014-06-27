@@ -7,10 +7,13 @@
     <input ng-model="query" class="full-width omega-top" placeholder="Search"><br>
     <!-- <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
     <button data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Money</button>
-    <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button> -->
+    <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button>
+    ng-click="showDetails(donor.lName)""
+    -->
     <main>
         <ul class="donors-list omega-top">
-            <li  class="donor-item" typeof="Person" data-ng-repeat="donor in donors | orderBy:predicate:reverse | filter:query" ng-click="showDonorDetails = !showDonorDetails" ng-click="showDetails(donor.lName)">
+            <li  class="donor-item" typeof="Person" data-ng-repeat="donor in donors | orderBy:predicate:reverse | filter:query" data-ng-click="showDetails(donor.lName)">
+            <!-- <a href="#/reports/{{donor.lName}}"> -->
                 <div class="clearfix">
                     <article class="donor-info half-width">
                         <h3 class="info" property="name">{{donor.lName}}, {{donor.fName}}</h3>
@@ -26,6 +29,7 @@
                     <aside class="span-3 h4">{{donor.donationAmount | currency}}</aside>
                     <aside class="span-3 h4">{{donor.created | date: 'shortDate'}}</aside>
                 </div>
+            <!-- </a> -->
             </li>
         </ul>
         <!-- <div data-ng-show="showLargeDetails">
