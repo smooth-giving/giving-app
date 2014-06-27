@@ -1,5 +1,4 @@
 api/db.js
 node_modules
 app/bower_components
-app/dist
 .sass-cache
