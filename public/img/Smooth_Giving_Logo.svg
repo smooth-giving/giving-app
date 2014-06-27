@@ -2,36 +2,12 @@
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 105 113"
-	 enable-background="new 0 0 105 113" xml:space="preserve">
-<font horiz-adv-x="1000">
-<!-- Copyright: Copyright 2014 Adobe System Incorporated. All rights reserved. -->
-<font-face font-family="ValenciaRegular" units-per-em="1000" underline-position="-100" underline-thickness="50"/>
-<missing-glyph horiz-adv-x="186"/>
-<glyph unicode="G" horiz-adv-x="145" d="M75,618C45,618 22,595 22,566l0,-516C22,20 45,-3 75,-3C103,-3 127,21 127,50l0,143l-53,0l0,-31l21,0l0,-112C95,39 87,29 75,29C63,29 54,38 54,50l0,516C54,578 63,587 75,587C87,587 95,577 95,566l0,-117l32,0l0,117C127,595 103,618 75,618z"/>
-<glyph unicode="I" horiz-adv-x="78" d="M20,0l32,0l0,615l-32,0z"/>
-<glyph unicode="N" horiz-adv-x="150" d="M74,615l-52,0l0,-615l32,0l0,584l20,0C86,584 95,575 95,563l0,-563l32,0l0,563C127,592 103,615 74,615z"/>
-<glyph unicode="V" horiz-adv-x="155" d="M57,0l40,0l44,615l-31,0l-33,-532l-33,532l-31,0z"/>
-</font>
-
-	<font horiz-adv-x="1000">
-<!-- Copyright (c) 2011 by Tipple Type. All rights reserved. -->
-<!-- Copyright: Copyright 2014 Adobe System Incorporated. All rights reserved. -->
-<font-face font-family="QuaverSans" units-per-em="1000" underline-position="-100" underline-thickness="50"/>
-<missing-glyph horiz-adv-x="200"/>
-<glyph unicode="H" horiz-adv-x="480" d="M410,620l0,-275l-340,0l0,275l-40,0l0,-620l40,0l0,310l340,0l0,-310l40,0l0,620l-40,0z"/>
-<glyph unicode="M" horiz-adv-x="630" d="M560,620l-237,-563l-253,563l-40,0l0,-620l40,0l0,530l237,-529l34,0l220,529l0,-530l39,0l0,620l-40,0z"/>
-<glyph unicode="O" horiz-adv-x="600" d="M300,620C151,620 20,514 20,310C20,106 151,0 300,0C449,0 580,89 580,310C580,531 449,620 300,620M300,40C179,40 60,122 60,310C60,498 179,580 300,580C373,580 540,556 540,310C540,64 373,40 300,40z"/>
-<glyph unicode="S" horiz-adv-x="501" d="M246,0C293,0 332,5 365,15C395,24 419,38 438,56C467,84 481,121 481,169C481,196 474,221 459,242C447,261 429,277 405,292C362,318 307,335 254,352C163,380 77,407 77,470C77,504 94,582 246,582C403,582 415,475 415,441l38,0C453,467 448,517 411,558C394,578 372,593 346,603C318,614 284,620 246,620C174,620 119,603 83,570C55,545 40,509 40,470C40,428 62,395 108,368C145,346 192,332 243,316C294,300 346,283 385,260C425,235 444,206 444,169C444,132 433,103 412,83C381,53 325,38 246,38C179,38 129,55 97,88C56,131 58,187 59,188l-38,0C21,185 18,117 69,63C108,21 168,0 246,0z"/>
-<glyph unicode="T" horiz-adv-x="530" d="M505,620l-220,0l-40,0l-220,0l0,-40l220,0l0,-580l40,0l0,580l220,0l0,40z"/>
-</font>
-
-	<title>Input Elements</title>
-<desc>Created with Sketch.</desc>
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 82 644 676"
+	 enable-background="new 0 82 644 676" xml:space="preserve">
 <g id="Page-1" sketch:type="MSPage">
 	<g id="Input-Elements" transform="translate(-16.000000, -7.000000)" sketch:type="MSLayerGroup">
-		<text transform="matrix(1 0 0 1 15.428 119)" fill="#808184" font-family="'ValenciaRegular'" font-size="144">GIVING</text>
-		<text transform="matrix(1 0 0 1 16 28)" fill="#808184" font-family="'QuaverSans'" font-size="32">SMOOTH</text>
+		<text transform="matrix(1 0 0 1 8.1294 752.5224)" fill="#808184" font-family="'ValenciaRegular'" font-size="850.7769">GIVING</text>
+		<text transform="matrix(0.9819 0 0 1 23.8706 215.892)" fill="#808184" font-family="'QuaverSans'" font-size="188">SMOOTH</text>
 	</g>
 </g>
 </svg>
