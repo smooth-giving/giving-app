@@ -14,6 +14,7 @@ module.exports = function(app) {
                     $location.path("/login");
                 }
                 $scope.donors = data;
+                console.dir(data);
             })
             .error(function(data, status, headers, config) {
                 console.log(data);
