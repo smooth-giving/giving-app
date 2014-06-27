@@ -7,19 +7,21 @@
         <title>Smooth Giving App</title>
     </head>
     <body>
-        <h2>Hello Sign Up</h2>
-        {{#if message.length}}
-            {{message}}
-        {{/if}}
+        <div class="outer-contianer">
+            <h2>Hello Sign Up Express Template</h2>
+            {{#if message.length}}
+                {{message}}
+            {{/if}}
 
-        <form action="/signup" method="post">
-            <label>email</label>
-            <input type="text" name="email">
-            <label>Password</label>
-            <input type="password" name="password">
-            <button type="submit">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="/login">Login</a></p>
+            <form action="/signup" method="post">
+                <label>email</label>
+                <input type="text" name="email">
+                <label>Password</label>
+                <input type="password" name="password">
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
         <script data-main="public.js" src="require.js"></script>
     </body>
 </html>

@@ -6,9 +6,11 @@
 
   // Environments (predefined globals).
   "browser"       : true,   // Standard browser globals e.g. `window`,.
-  "node"          : false,
+  "node"          : true,
   "rhino"         : false,
   "couch"         : false,
+  "angular"       : true,
+  "repeater"      : false,
   "wsh"           : false,   // Windows Scripting Host.
 
   // Libraries (predefined globals).

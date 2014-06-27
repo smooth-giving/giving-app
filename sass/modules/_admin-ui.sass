@@ -1,0 +1,144 @@
+//---------------admin login----------------
+
+.admin-login, .admin-dashboard
+  position: relative
+  margin-left: 50%
+  -webkit-transform: translate(-50%)
+  -moz-transform: translate(-50%)
+  -ms-transform: translate(-50%)
+  -o-transform: translate(-50%)
+  transform: translate(-50%)
+  width: 100%
+  max-width: 20em
+  padding: 1em 0.618em
+
+.admin-login-form
+  margin-top: 25%
+
+.logo-svg
+  display: block
+  margin: auto
+  width: 60%
+
+.admin-legend
+  display: none
+
+.password-reset
+  display: block
+  text-align: center
+  margin-top: 10%
+  width: 100%
+  color: gray
+
+
+//---------------admin dashboard----------------
+.admin-dashboard
+  max-width: 30em
+
+.admin-panel
+  @include span-columns(8)
+  @include shift(2)
+  margin-top: 10%
+  padding:0
+
+.dashboard-logo
+  width: 40%
+
+.dashboard-menu
+  list-style-type: none
+  padding: 0
+
+.icon-users, .icon-bars2, .icon-cog
+  color:white
+  text-decoration:none
+
+.icon-users:before, .icon-bars2:before, .icon-cog:before
+  padding-right: 10%
+  font-size: 3em
+  vertical-align: middle
+  text-decoration: none
+  color: white
+
+.dashboard-btn
+  @include span-columns(8)
+  @include omega(4n)
+  height: 4.5em
+  width: 100%
+  text-decoration: none
+  text-align: center
+  line-height: 0
+  padding-right: 10%
+  padding-top: 2em
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  border: 1px solid gray
+  background-color: #b3b3b3
+  color: white
+  margin-top: 14px
+  &:hover
+    background-color: darken(#b3b3b3, 10%)
+
+.logout
+  @include span-columns(8)
+  @include shift(2)
+  margin-top: 10%
+
+//---------------admin reports----------------
+
+.admin-reports
+  margin-top: 1%
+
+.chart
+  height: 30em
+  border: 1px
+  border-color: darkgray
+  border-style: solid
+  width: 80%
+  float: left
+  &.omega-right
+    margin-right: 0
+  @include media(max-width em(768))
+    @include span-columns(12)
+
+.report-breakdown
+  display: block
+  float: left
+  width: 20%
+  @include media(max-width em(768))
+    @include span-columns(12)
+
+.data-block
+  border: 1px
+  border-color: darkgray
+  border-style: solid
+  height: 6em
+  width: 100%
+  float: left
+  @include media(max-width em(768))
+    width: 20%
+
+.numeric-value
+  text-align: center
+  margin: 10% auto 0
+  color: #3EA9F5
+  text-transform: lowercase
+  @extend %h3
+  @include media(max-width em(600))
+    @extend %h4
+
+.value-designation
+  text-align: center
+  vertical-align: middle
+  padding: 0
+  margin-top: 0
+  @include media(max-width em(600))
+    font-size: 0.75em
+
+.recent-donors-list
+  text-align: center
+  padding: 0.5em
+  margin: 0
+  background-color: lightgray
+  border: 1px solid
+  border-color: darkgray

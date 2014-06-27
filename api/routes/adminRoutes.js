@@ -3,6 +3,7 @@
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) {
         return next();
+        conosole.log("admin is logged in");
     }
 
     res.redirect("/");
@@ -19,7 +20,7 @@ module.exports = function(app, passport) {
 
     // process the sign up form
     app.post("/signup", passport.authenticate("local-signup", {
-        successRedirect: "/admin",
+        successRedirect: "/#/dashboard",
         failureRedirect: "/signup",
         failureFlash: true
     }));
@@ -31,17 +32,17 @@ module.exports = function(app, passport) {
 
     // process the login form
     app.post("/login", passport.authenticate("local-login", {
-        successRedirect : "/admin",
+        successRedirect : "/#/dashboard",
         failureRedirect : "/login",
         failureFlash : true
     })); // end app.post("/login")
 
     // profile of Admin
-    app.get("/admin", isLoggedIn, function(req, res) {
-        res.render("admin.hbs", {
-            admin : req.admin
-        });
-    }); //end app.get("/profile")
+    // app.get("/admin", isLoggedIn, function(req, res) {
+    //     res.render("admin.html", {
+    //         admin : req.admin
+    //     });
+    // }); //end app.get("/profile")
 
     app.get("/logout", function(req, res) {
         req.logout();
