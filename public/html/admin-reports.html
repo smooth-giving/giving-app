@@ -14,12 +14,14 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <header class="admin-header full-width">
-   <a class="hd-icon icon-list" role="button"></a>
-   <p class="h4">Donation Overview</p>
-   <a class="hd-icon icon-export" role="button"></a>
+    <div class="outer-container">
+      <a class="hd-icon icon-list" role="button"></a>
+      <p class="h4">Donation Report</p>
+      <a class="hd-icon icon-export" role="button"></a>
+    </div>
   </header>
   <body>
-    <div class="admin-reports clearfix">
+    <div class="admin-reports outer-container clearfix">
       <div id="general-report" class="chart omega-right">
         <svg></svg>
       </div>
@@ -47,7 +49,7 @@
       </aside>
     </div>
     <section class="outer-container">
-      <header>Recent Donors</header>
+      <header class="recent-donors-list h4">Recent Donors</header>
       <ul class="donors-list omega-top">
         <li class="donor-item" vocab="http://schema.org/" typeof="Person">
           <div class="clearfix">
