@@ -14,10 +14,12 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-     <header class="admin-header full-width">
-      <a class="hd-icon icon-list" role="button"></a>
-      <p class="h4">Admin Panel</p>
-      <a class="hd-icon icon-export" role="button"></a>
+    <header class="admin-header full-width">
+      <div class="outer-container">
+        <a class="hd-icon icon-list" role="button"></a>
+        <p class="h4">Admin Panel</p>
+        <a class="hd-icon icon-export" role="button"></a>
+      </div>
     </header>
     <!-- <nav class="side-nav">
       <section>
@@ -33,9 +35,10 @@
       </menu>
     </nav> -->
 
-    <input type="search" class="full-width omega-top" placeholder="Search">
-    <main>
-      <ul class="donors-list omega-top  ">
+
+    <main class="outer-container">
+      <input type="search" class="full-width omega-top" placeholder="Search">
+      <ul class="donors-list omega-top">
         <li class="donor-item" vocab="http://schema.org/" typeof="Person">
           <div class="clearfix">
             <!--Profile image-->
@@ -59,7 +62,7 @@
         </li>
       </ul>
     </main>
-    <div class="option-group full-width" role="tablist">
+    <div class="option-group outer-container" role="tablist">
       <a class="tab active" role="tab">Sort by Name</a>
       <a class="tab" role="tab">Money</a>
       <a class="tab" role="tab">Date</a>
