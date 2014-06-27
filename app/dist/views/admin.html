@@ -1,8 +1,10 @@
 <div data-ng-controller="SmoothController">
     <header class="admin-header full-width">
-        <a class="hd-icon icon-list" role="button"></a>
-        <p class="h4">Admin Panel</p>
-        <a class="hd-icon icon-export" role="button"></a>
+        <div class="outer-container">
+            <a class="hd-icon icon-list" role="button"></a>
+            <p class="h4">Admin Panel</p>
+            <a class="hd-icon icon-export" role="button"></a>
+        </div>
     </header>
     <input ng-model="query" class="full-width omega-top" placeholder="Search"><br>
     <!-- <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
@@ -10,7 +12,7 @@
     <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button>
     ng-click="showDetails(donor.lName)""
     -->
-    <main>
+    <main class="outer-container">
         <ul class="donors-list omega-top">
             <li  class="donor-item" typeof="Person" data-ng-repeat="donor in donors | orderBy:predicate:reverse | filter:query" data-ng-click="showDetails(donor.lName)">
             <!-- <a href="#/reports/{{donor.lName}}"> -->
@@ -36,7 +38,7 @@
             <p data-ng-repeat="details in donorDetails">This should be the name: {{details.lName}}</p>
         </div> -->
     </main>
-    <div class="option-group full-width" role="tablist">
+    <div class="option-group full-width outer-container" role="tablist">
       <a class="tab active" role="tab" data-ng-click="predicate = 'lName'; reverse=!reverse">Sort by Name</a>
       <a class="tab" role="tab" data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Donation</a>
       <a class="tab" role="tab" data-ng-click="predicate = 'created'; reverse=!reverse">Date</a>
