@@ -1,6 +1,9 @@
+//For the search and sort tab
 .option-group
-  @include span-columns(10)
-  @include shift(1)
+  margin: 0 auto
+  position: fixed
+  bottom: 0
+  background-color: #FFFFFF
 
 .profile-img
   margin: 0 auto
@@ -10,12 +13,16 @@
   border: 3px #ddd solid
   overflow: hidden
 
+//For donor information
+.donors-list
+  margin-bottom: 100px
+
 .donor-item
   border-bottom: 1px #eee solid
   cursor: pointer
   display: block
   padding: 1em
-  &:nth-child(2n)
+  &:nth-child(2n+1)
     background-color: #eee
   &:hover
     background-color: darken(#eee, 5%)
@@ -25,3 +32,14 @@
 
 .info
   margin: 0 auto
+
+//Date info for donor list
+.date
+  text-align: center
+  p
+    margin: 0 auto
+//For side nav
+.side-nav-list li
+  display: block
+  padding: 1em 0.618em
+  border-bottom: 1px solid
