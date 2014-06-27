@@ -1,22 +1,24 @@
 //---------------admin login----------------
 
-.admin-login
-  position: absolute
-  left: 50%
-  top: 45%
-  -webkit-transform: translate(-50%, -50%)
-  -moz-transform: translate(-50%, -50%)
-  -ms-transform: translate(-50%, -50%)
-  -o-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
+.admin-login, .admin-dashboard
+  position: relative
+  margin-left: 50%
+  -webkit-transform: translate(-50%)
+  -moz-transform: translate(-50%)
+  -ms-transform: translate(-50%)
+  -o-transform: translate(-50%)
+  transform: translate(-50%)
   width: 100%
   max-width: 20em
+  padding: 1em 0.618em
 
 .admin-login-form
   margin-top: 25%
+
 .logo-svg
   display: block
   margin: auto
+  width: 60%
 
 .admin-legend
   display: none
@@ -30,25 +32,17 @@
 
 
 //---------------admin dashboard----------------
-
 .admin-dashboard
-  @include outer-container
-  position: absolute
-  left: 50%
-  top: 50%
-  -webkit-transform: translate(-50%, -50%)
-  -moz-transform: translate(-50%, -50%)
-  -ms-transform: translate(-50%, -50%)
-  -o-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
-  width: 100%
-  max-width: 34em
+  max-width: 30em
 
 .admin-panel
   @include span-columns(8)
   @include shift(2)
-  margin-top: 15%
+  margin-top: 10%
   padding:0
+
+.dashboard-logo
+  width: 40%
 
 .dashboard-menu
   list-style-type: none
@@ -66,7 +60,7 @@
   color: white
 
 .dashboard-btn
-  @include span-columns(6)
+  @include span-columns(8)
   @include omega(4n)
   height: 4.5em
   width: 100%
@@ -93,49 +87,58 @@
 //---------------admin reports----------------
 
 .admin-reports
-  @include outer-container
-  position: absolute
-  left: 50%
-  top: 50%
-  -webkit-transform: translate(-50%, -50%)
-  -moz-transform: translate(-50%, -50%)
-  -ms-transform: translate(-50%, -50%)
-  -o-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
-  width: 100%
+  margin-top: 1%
 
-.data-viz
-  @include span-columns(6)
-  @include shift(3)
-  height: 10em
-  width: 10em
-  border: darkgray
+.chart
+  height: 30em
+  border: 1px
+  border-color: darkgray
   border-style: solid
+  width: 80%
+  float: left
+  &.omega-right
+    margin-right: 0
+  @include media(max-width em(768))
+    @include span-columns(12)
 
 .report-breakdown
-  @include span-columns(2)
-  @include shift(6)
-  // border: darkgray
-  // border-style: solid
-  // border-bottom: 0
+  display: block
+  float: left
+  width: 20%
+  @include media(max-width em(768))
+    @include span-columns(12)
 
+.data-block
+  border: 1px
+  border-color: darkgray
+  border-style: solid
+  height: 6em
+  width: 100%
+  float: left
+  @include media(max-width em(768))
+    width: 20%
 
 .numeric-value
   text-align: center
-  line-height: 2em
-  font-size: 2em
+  margin: 10% auto 0
   color: #3EA9F5
-  border: darkgray
-  border-style: solid
-  border-bottom: 0
+  text-transform: lowercase
+  @extend %h3
+  @include media(max-width em(600))
+    @extend %h4
 
 .value-designation
   text-align: center
   vertical-align: middle
-  padding-top: 0
-  // padding-left: 25%
-  // padding-right: 25%
-  padding-bottom: 10%
-  border: darkgray
-  border-style: solid
-  border-top: 0
+  padding: 0
+  margin-top: 0
+  @include media(max-width em(600))
+    font-size: 0.75em
+
+.recent-donors-list
+  text-align: center
+  padding: 0.5em
+  margin: 0
+  background-color: lightgray
+  border: 1px solid
+  border-color: darkgray

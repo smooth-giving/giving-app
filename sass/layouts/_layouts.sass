@@ -21,6 +21,11 @@
 .span-3
   @include span-columns(3)
 
+.outer-container
+  width: 100%
+  position: relative
+  @include outer-container
+
 //minimize margin-top to 0
 .omega-top
   margin-top: 0
@@ -30,15 +35,14 @@
   @include omega()
 
 .clearfix
-  @include clearfix;
+  @include clearfix
 
 .pull-left
   float: left
 
 .pull-right
   float: right
+
 ul
   padding: 0
   list-tyle-type: none
-
-
