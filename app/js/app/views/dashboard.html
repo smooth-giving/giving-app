@@ -1,4 +1,4 @@
-<div class="admin-dashboard">
+<div class="admin-dashboard" data-ng-conroller="DashboardController">
     <img class="logo-svg" src="../img/Smooth_Giving_Logo.svg" alt="Smooth Giving Logo"/>
     <menu class="admin-panel">
         <ul class="dashboard-menu">
@@ -14,6 +14,6 @@
         </ul>
     </menu>
     <div class="logout">
-        <button class="btn btn-primary">Log Out</button>
+        <button data-ng-click="logout()" class="btn btn-primary">Log Out</button>
     </div>
 </div>

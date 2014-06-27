@@ -1,0 +1,62 @@
+<header class="admin-header full-width">
+    <div class="outer-container">
+        <a class="hd-icon icon-list" role="button"></a>
+        <p class="h4">Donor Overall Review</p>
+        <a class="hd-icon icon-export" role="button"></a>
+    </div>
+</header>
+<main class="outer-container" data-ng-controller="ReportController" data-ng-repeat="detail in donorDetails | limitTo: 1">
+    <div class="admin-reports clearfix">
+        <div id="general-report" class="chart omega-right">
+          <svg></svg>
+        </div>
+        <aside class="report-breakdown clearfix">
+          <div class="data-block">
+            <p class="numeric-value">{{count}}</p>
+            <p class="value-designation">Donations</p>
+          </div>
+          <div class="data-block">
+            <p class="numeric-value">{{totalCash | currency}}</p>
+            <p class="value-designation">Revenue</p>
+          </div>
+          <div class="data-block">
+            <p class="numeric-value">{{average | currency}}</p>
+            <p class="value-designation">Avg. Donation</p>
+          </div>
+          <div class="data-block">
+            <p class="numeric-value">$15k</p>
+            <p class="value-designation">Goal</p>
+          </div>
+          <div class="data-block">
+            <p class="numeric-value">$3k</p>
+            <p class="value-designation">Left to Goal</p>
+          </div>
+        </aside>
+    </div>
+    <!-- <section>
+        <header class="recent-donors-list h4">Donor's History</header>
+        <ul class="donors-list omega-top">
+            <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+                <div class="clearfix">
+
+              <section class="donor-info half-width">
+                <h3 class="info" property="name">{{detail.fName}} {{detail.lName}}</h3>
+                <p class="info full-width" property="telephone">{{detail.phone}}</p>
+                <span class="info full-width" property="email">{{detail.email}}</span>
+                <address property="address" typeof="PostalAddress">
+                    <p class="info" property="streetAddress">
+                        {{detail.address}}
+                    </p>
+                    <span property="addressLocality">{{detail.city}}</span>,
+                    <span property="addressRegion">{{detail.state}}</span>
+                    <span property="postalCode">{{detail.zipcode}}</span>
+                </address>
+              </section>
+              <aside class="span-3 h4">
+                {{detail.donationAmount}}
+              </aside>
+                </div>
+            </li>
+        </ul>
+    </section> -->
+</main>

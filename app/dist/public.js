@@ -33690,6 +33690,7 @@ require("./controllers/donateController.js")(smoothApp);
 require("./controllers/thanksController.js")(smoothApp);
 require("./controllers/dashboardController.js")(smoothApp);
 require("./controllers/reportsController.js")(smoothApp);
+require("./controllers/reportController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -33705,6 +33706,10 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/dashboard.html",
             controller: "DashboardController"
         })
+        .when("/report", {
+            templateUrl: "views/report.html",
+            controller: "ReportController"
+        })
         .when("/reports/:id", {
             templateUrl: "views/reports.html",
             controller: "ReportsController"
@@ -33717,7 +33722,7 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             //redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":7,"./controllers/dashboardController.js":9,"./controllers/donateController.js":10,"./controllers/reportsController.js":11,"./controllers/smoothController.js":12,"./controllers/thanksController.js":13}],9:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":7,"./controllers/dashboardController.js":9,"./controllers/donateController.js":10,"./controllers/reportController.js":11,"./controllers/reportsController.js":12,"./controllers/smoothController.js":13,"./controllers/thanksController.js":14}],9:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33727,7 +33732,10 @@ module.exports = function(app) {
             $location.path("/admin");
         }// end $scope.donorPage
         $scope.reportsPage = function() {
-            $location.path("/reports");
+            $location.path("/report");
+        }
+        $scope.logout = function() {
+            $location.path("/");
         }
     }); // end app.controller
 };
@@ -33778,6 +33786,39 @@ module.exports = function(app) {
 "use strict";
 
 module.exports = function(app) {
+    app.controller("ReportController", function($scope, $http, $location, $routeParams) {
+        var id = $routeParams.id;
+        $http({
+            method: "GET",
+            url: "/api/donors"
+        })
+        .success(function(data, status, headers, config) {
+                $scope.donorDetails = data;
+                var deets = data;
+                console.dir(deets);
+                $scope.numDonations = function(deets) {
+                    console.log("deets inside numDonations: " + deets);
+                    $scope.count = 0;
+                    $scope.totalCash = 0;
+                    $scope.average = 0;
+
+                    for(var i = 0; i < deets.length; i++) {
+                        $scope.count = ++$scope.count;
+                        $scope.totalCash = deets[i].donationAmount + $scope.totalCash;
+                    }
+                    $scope.average = ($scope.totalCash/$scope.count);
+                }(deets);
+        })
+        .error(function(data, status, headers, config) {
+                console.log(data);
+        });
+    }); // end app.controller
+}; // end module.exports
+},{}],12:[function(require,module,exports){
+/*jslint node: true */
+"use strict";
+
+module.exports = function(app) {
     app.controller("ReportsController", function($scope, $http, $location, $routeParams) {
         $scope.message = "I am a message from the controller";
         console.dir($routeParams.id);
@@ -33821,7 +33862,7 @@ module.exports = function(app) {
 
     }); // end app.controller
 }; // end module.exports
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33862,7 +33903,7 @@ module.exports = function(app) {
         });
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33871,7 +33912,7 @@ module.exports = function(app) {
         $scope.message = "Thanks for the cash bro";
     });
 };// end module.exports
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33886,4 +33927,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[8,9,10,11,12,13,14,7,6])
+},{}]},{},[8,9,10,11,12,13,14,15,7,6])

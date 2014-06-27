@@ -13,6 +13,7 @@ require("./controllers/donateController.js")(smoothApp);
 require("./controllers/thanksController.js")(smoothApp);
 require("./controllers/dashboardController.js")(smoothApp);
 require("./controllers/reportsController.js")(smoothApp);
+require("./controllers/reportController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -27,6 +28,10 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
         .when("/dashboard", {
             templateUrl: "views/dashboard.html",
             controller: "DashboardController"
+        })
+        .when("/report", {
+            templateUrl: "views/report.html",
+            controller: "ReportController"
         })
         .when("/reports/:id", {
             templateUrl: "views/reports.html",
