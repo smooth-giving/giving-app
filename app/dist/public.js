@@ -33853,25 +33853,10 @@ module.exports = function(app) {
                 }
                 //id = id.toLowerCase();
                 $location.path("/reports/" + id);
-                // $http({
-                //     method: "GET",
-                //     url: "/api/donors/" + id
-                // })
-                // .success(function(data, stauts, headers, config) {
-                //         console.log(id);
-                //         console.log(data);
-                //         if(status != 200) {
-                //             console.log(status);
-                //             $location.path("/login");
-                //         }
-                //         $scope.donorDetails = data;
-                //         console.log("Details are: " + $scope.donorDetails);
-                //         $location.path("/reports/");
-                //     })
-                //     .error(function(data, status, headers, config) {
-                //         console.log(data);
-                //     });
             };
+            $scope.dashboard = function() {
+                $location.path("/dashboard");
+            }
 
         });
 };
