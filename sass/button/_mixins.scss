@@ -1,0 +1,16 @@
+//Mixins to generate btn of different colors and different state
+@mixin buttoncss($btn-style){
+  @each $style in $btn-style{
+    $key: nth($style, 1);
+    $value: nth($style, 2);
+
+    &-#{$key}{
+      background: $value;
+      border: 1px solid darken($value, 5%);
+      &:hover{
+        background: darken($value, 10%);
+        border: 1px solid darken($value, 15%);
+      }
+    }
+  }
+}

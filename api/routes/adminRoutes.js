@@ -5,7 +5,7 @@ function isLoggedIn(req, res, next) {
         return next();
     }
 
-    res.redirect("/admin");
+    res.redirect("/#/dashboard");
 }
 
 module.exports = function(app, passport) {
@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
 
     // process the sign up form
     app.post("/signup", passport.authenticate("local-signup", {
-        successRedirect: "/#/admin",
+        successRedirect: "/#/dashboard",
         failureRedirect: "/signup",
         failureFlash: true
     }));
@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
 
     // process the login form
     app.post("/login", passport.authenticate("local-login", {
-        successRedirect : "/#/admin",
+        successRedirect : "/#/dashboard",
         failureRedirect : "/login",
         failureFlash : true
     })); // end app.post("/login")

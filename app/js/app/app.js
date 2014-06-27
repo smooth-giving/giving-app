@@ -10,6 +10,8 @@ var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies", "
 require("./controllers/smoothController.js")(smoothApp);
 require("./controllers/donateController.js")(smoothApp);
 require("./controllers/thanksController.js")(smoothApp);
+require("./controllers/dashboardController.js")(smoothApp);
+require("./controllers/reportsController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -20,6 +22,14 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
         .when("/admin", {
             templateUrl: "views/admin.html",
             controller: "SmoothController"
+        })
+        .when("/dashboard", {
+            templateUrl: "views/dashboard.html",
+            controller: "DashboardController"
+        })
+        .when("/reports", {
+            templateUrl: "views/reports.html",
+            controller: "ReportsController"
         })
         .when("/thanks", {
             templateUrl: "views/thanks.html",

@@ -1,0 +1,24 @@
+@import button/config
+@import button/extends
+@import button/mixins
+
+.btn
+  @extend %btn
+  @include buttoncss($btn-style)
+
+.tablist
+  margin: 5px auto
+.tab
+  @extend %tab
+  cursor: pointer
+  &:nth-child(n+2)
+    margin-left: -5px
+  &:hover
+    background-color: $primary-color
+    color: #FFFFFF
+
+.active
+  background-color: darken($primary-color, 10%)
+  color: #FFFFFF
+
+

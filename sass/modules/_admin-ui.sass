@@ -1,0 +1,141 @@
+//---------------admin login----------------
+
+.admin-login
+  position: absolute
+  left: 50%
+  top: 45%
+  -webkit-transform: translate(-50%, -50%)
+  -moz-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  -o-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  width: 100%
+  max-width: 20em
+
+.admin-login-form
+  margin-top: 25%
+.logo-svg
+  display: block
+  margin: auto
+
+.admin-legend
+  display: none
+
+.password-reset
+  display: block
+  text-align: center
+  margin-top: 10%
+  width: 100%
+  color: gray
+
+
+//---------------admin dashboard----------------
+
+.admin-dashboard
+  @include outer-container
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -moz-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  -o-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  width: 100%
+  max-width: 34em
+
+.admin-panel
+  @include span-columns(8)
+  @include shift(2)
+  margin-top: 15%
+  padding:0
+
+.dashboard-menu
+  list-style-type: none
+  padding: 0
+
+.icon-users, .icon-bars2, .icon-cog
+  color:white
+  text-decoration:none
+
+.icon-users:before, .icon-bars2:before, .icon-cog:before
+  padding-right: 10%
+  font-size: 3em
+  vertical-align: middle
+  text-decoration: none
+  color: white
+
+.dashboard-btn
+  @include span-columns(6)
+  @include omega(4n)
+  height: 4.5em
+  width: 100%
+  text-decoration: none
+  text-align: center
+  line-height: 0
+  padding-right: 10%
+  padding-top: 2em
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  border: 1px solid gray
+  background-color: #b3b3b3
+  color: white
+  margin-top: 14px
+  &:hover
+    background-color: darken(#b3b3b3, 10%)
+
+.logout
+  @include span-columns(8)
+  @include shift(2)
+  margin-top: 10%
+
+//---------------admin reports----------------
+
+.admin-reports
+  @include outer-container
+  position: absolute
+  left: 50%
+  top: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -moz-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  -o-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  width: 100%
+
+.data-viz
+  @include span-columns(6)
+  @include shift(3)
+  height: 10em
+  width: 10em
+  border: darkgray
+  border-style: solid
+
+.report-breakdown
+  @include span-columns(2)
+  @include shift(6)
+  // border: darkgray
+  // border-style: solid
+  // border-bottom: 0
+
+
+.numeric-value
+  text-align: center
+  line-height: 2em
+  font-size: 2em
+  color: #3EA9F5
+  border: darkgray
+  border-style: solid
+  border-bottom: 0
+
+.value-designation
+  text-align: center
+  vertical-align: middle
+  padding-top: 0
+  // padding-left: 25%
+  // padding-right: 25%
+  padding-bottom: 10%
+  border: darkgray
+  border-style: solid
+  border-top: 0

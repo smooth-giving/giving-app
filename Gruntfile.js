@@ -1,5 +1,5 @@
 /*jslint node: true */
-"use strict";
+
 
 process.env.PHANTOMJS_EXECUTABLE = process.env.PHANTOMJS_EXECUTABLE || '/usr/local/opt/nvm/v0.10.28/bin/phantomjs';
 
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: "app/",
-                        src: ["*.css", "*.html", "/img/**/*", "!Gruntfile.js"],
+                        src: ["*.css", "*.html", "img/**/*.svg", "!Gruntfile.js", "fonts/**/*"],
                         dest: "app/dist/",
                         flatten: false,
                         filter: "isFile"
@@ -52,6 +52,17 @@ module.exports = function(grunt) {
             options: {
                 transform: ['debowerify'],
                 debug: true
+            }
+        },
+        sass: {
+            dist: {
+                files: {
+                    "app/dist/style.css" : "sass/style.scss"
+                },
+                options: {
+                    includePaths: require('node-bourbon').includePaths,
+                    includePaths: require('node-neat').includePaths
+                }
             }
         },
         express: {
@@ -91,6 +102,13 @@ module.exports = function(grunt) {
                 files: ["app/js/**/*.js", "app/bower_components/**/*.js", "test/**/*.js", "app/**/*.html", "!app/dist/**/*.html"],
                 tasks: ["build"]
             },
+            source: {
+                files: ["sass/**/*.scss"],
+                tasks: ["sass"],
+                options: {
+                    livereload: true
+                }
+            },
             express: {
                 files: ["server.js", "api/routes/.js", "api/modesl/*.js", "api/auth/*.js"],
                 tasks: ['server'],
@@ -107,7 +125,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test:api','simplemocha');
     grunt.registerTask('test',['test:acceptance','test:api']);
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('build',['clean', 'browserify', 'copy:main']);
+    grunt.registerTask('build',['clean', 'browserify', 'copy:main', 'sass' ]);
 };// end module.exports
 
 

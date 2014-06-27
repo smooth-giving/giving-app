@@ -24431,6 +24431,8 @@ var smoothApp = angular.module("smoothApp", ["ngRoute", "base64", "ngCookies", "
 require("./controllers/smoothController.js")(smoothApp);
 require("./controllers/donateController.js")(smoothApp);
 require("./controllers/thanksController.js")(smoothApp);
+require("./controllers/dashboardController.js")(smoothApp);
+require("./controllers/reportsController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -24442,6 +24444,14 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/admin.html",
             controller: "SmoothController"
         })
+        .when("/dashboard", {
+            templateUrl: "views/dashboard.html",
+            controller: "DashboardController"
+        })
+        .when("/reports", {
+            templateUrl: "views/reports.html",
+            controller: "ReportsController"
+        })
         .when("/thanks", {
             templateUrl: "views/thanks.html",
             controller: "ThanksController"
@@ -24450,7 +24460,21 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":6,"./controllers/donateController.js":8,"./controllers/smoothController.js":10,"./controllers/thanksController.js":11}],8:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":6,"./controllers/dashboardController.js":8,"./controllers/donateController.js":9,"./controllers/reportsController.js":10,"./controllers/smoothController.js":11,"./controllers/thanksController.js":12}],8:[function(require,module,exports){
+/*jslint node: true */
+"use strict";
+
+module.exports = function(app) {
+    app.controller("DashboardController", function($scope, $http, $location) {
+        $scope.donorPage = function() {
+            $location.path("/admin");
+        }// end $scope.donorPage
+        $scope.reportsPage = function() {
+            $location.path("/reports");
+        }
+    }); // end app.controller
+};
+},{}],9:[function(require,module,exports){
 (function (global){
 /*jslint node: true */
 "use strict";
@@ -24469,6 +24493,7 @@ module.exports = function(app) {
                 "donationAmount" : "",
                 "created" : ""
             };
+            $scope.amount = "50";
             $scope.saveDonor = function() {
                 $http.post("/api/donors", $scope.donor)
                     .success(function(data, status, header, config) {
@@ -24491,9 +24516,16 @@ module.exports = function(app) {
         });
 };
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],9:[function(require,module,exports){
-
 },{}],10:[function(require,module,exports){
+/*jslint node: true */
+"use strict";
+
+module.exports = function(app) {
+    app.controller("ReportsController", function($scope, $http, $location) {
+        $scope.message = "I am a message from the controller";
+    }); // end app.controller
+}; // end module.exports
+},{}],11:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -24532,7 +24564,7 @@ module.exports = function(app) {
         });
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -24541,7 +24573,7 @@ module.exports = function(app) {
         $scope.message = "Thanks for the cash bro";
     });
 };// end module.exports
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -24556,4 +24588,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[7,8,9,10,11,12,6])
+},{}]},{},[7,8,9,10,11,12,13,6])

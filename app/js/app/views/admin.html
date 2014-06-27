@@ -1,19 +1,40 @@
 <div data-ng-controller="SmoothController">
-    <h3>Donors Angular Frodo</h3>
-    <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
+    <header class="admin-header full-width">
+        <a class="hd-icon icon-list" role="button"></a>
+        <p class="h4">Admin Panel</p>
+        <a class="hd-icon icon-export" role="button"></a>
+    </header>
+    <input ng-model="query" class="full-width omega-top" placeholder="Search"><br>
+    <!-- <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
     <button data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Money</button>
-    <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button>
-    <ul>
-        <li data-ng-repeat="donor in donors | orderBy:predicate:reverse" ng-click="showDonorDetails = !showDonorDetails">
-            {{donor.lName}}, {{donor.fName}}, {{donor.donationAmount | currency}}, {{donor.created | date: 'shortDate'}}
-            <!-- <div ng-show="showDonorDetails">
-                {{donor.address}},{{donor.city}},{{donor.state}},{{donor.zipcode}},{{donor.phone}},{{donor.email}}
-            </div> -->
-            <button ng-click="showDetails(donor.lName)">Show Details</button>
-        </li>
-    </ul>
-    <div data-ng-show="showLargeDetails">
-        <p data-ng-repeat="details in donorDetails">This should be the name: {{details.lName}}</p>
-
+    <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button> -->
+    <main>
+        <ul class="donors-list omega-top">
+            <li  class="donor-item" typeof="Person" data-ng-repeat="donor in donors | orderBy:predicate:reverse | filter:query" ng-click="showDonorDetails = !showDonorDetails" ng-click="showDetails(donor.lName)">
+                <div class="clearfix">
+                    <article class="donor-info half-width">
+                        <h3 class="info" property="name">{{donor.lName}}, {{donor.fName}}</h3>
+                        <p class="info full-width" property="telephone">{{donor.phone}}</p>
+                        <span class="info full-width" property="email">{{donor.email}}</span>
+                        <address property="address" typeof="PostalAddress">
+                            <p class="info" property="streetAddress">{{donor.address}}</p>
+                            <span property="addressLocality">{{donor.city}}</span>,
+                            <span property="addressRegion">{{donor.state}}</span>
+                            <span property="postalCode">{{donor.zipcode}}</span>
+                        </address>
+                    </article>
+                    <aside class="span-3 h4">{{donor.donationAmount | currency}}</aside>
+                    <aside class="span-3 h4">{{donor.created | date: 'shortDate'}}</aside>
+                </div>
+            </li>
+        </ul>
+        <!-- <div data-ng-show="showLargeDetails">
+            <p data-ng-repeat="details in donorDetails">This should be the name: {{details.lName}}</p>
+        </div> -->
+    </main>
+    <div class="option-group full-width" role="tablist">
+      <a class="tab active" role="tab" data-ng-click="predicate = 'lName'; reverse=!reverse">Sort by Name</a>
+      <a class="tab" role="tab" data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Donation</a>
+      <a class="tab" role="tab" data-ng-click="predicate = 'created'; reverse=!reverse">Date</a>
     </div>
 </div>
