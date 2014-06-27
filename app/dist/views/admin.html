@@ -6,13 +6,14 @@
             <a class="hd-icon icon-export" role="button"></a>
         </div>
     </header>
-    <input ng-model="query" class="full-width omega-top" placeholder="Search"><br>
+
     <!-- <button data-ng-click="predicate = 'lName'; reverse=!reverse">Name</button>
     <button data-ng-click="predicate = 'donationAmount'; reverse=!reverse">Money</button>
     <button data-ng-click="predicate = 'created'; reverse=!reverse">Date</button>
     ng-click="showDetails(donor.lName)""
     -->
     <main class="outer-container">
+        <input ng-model="query" class="full-width omega-top" placeholder="Search"><br>
         <ul class="donors-list omega-top">
             <li  class="donor-item" typeof="Person" data-ng-repeat="donor in donors | orderBy:predicate:reverse | filter:query" data-ng-click="showDetails(donor.lName)">
             <!-- <a href="#/reports/{{donor.lName}}"> -->
