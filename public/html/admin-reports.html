@@ -13,19 +13,64 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
+  <header class="admin-header full-width">
+   <a class="hd-icon icon-list" role="button"></a>
+   <p class="h4">Donation Overview</p>
+   <a class="hd-icon icon-export" role="button"></a>
+  </header>
   <body>
-    <div class="admin-reports">
-      <div id="general-report" class="chart">Donations Overview</div>
-        <aside class="report-breakdown">
-          <div class="numeric-value">50</div>
-          <div class="value-designation">Donations</div>
-          <div class="numeric-value">$12K</div>
-          <div class="value-designation">Revenue</div>
-          <div class="numeric-value">$240</div>
-          <div class="value-designation">Avg. Donation</div>
-          <div class="numeric-value">$15K</div>
-          <div class="value-designation">Goal</div>
-        </aside>
+    <div class="admin-reports clearfix">
+      <div id="general-report" class="chart omega-right">
+        <svg></svg>
+      </div>
+      <aside class="report-breakdown clearfix">
+        <div class="data-block">
+          <p class="numeric-value">50</p>
+          <p class="value-designation">Donations</p>
+        </div>
+        <div class="data-block">
+          <p class="numeric-value">$12k</p>
+          <p class="value-designation">Revenue</p>
+        </div>
+        <div class="data-block">
+          <p class="numeric-value">240</p>
+          <p class="value-designation">Avg. Donation</p>
+        </div>
+        <div class="data-block">
+          <p class="numeric-value">$15k</p>
+          <p class="value-designation">Goal</p>
+        </div>
+        <div class="data-block">
+          <p class="numeric-value">$3k</p>
+          <p class="value-designation">Left to Goal</p>
+        </div>
+      </aside>
     </div>
+    <section>
+      <header>Recent Donors</header>
+      <ul class="donors-list omega-top">
+        <li class="donor-item" vocab="http://schema.org/" typeof="Person">
+          <div class="clearfix">
+            <!--Profile image-->
+            <section class="donor-info half-width">
+              <h3 class="info" property="name">Donor Name</h3>
+              <p class="info full-width" property="telephone">(206)271-8279</p>
+              <span class="info full-width" property="email">this@email.com </span>
+              <address property="address" typeof="PostalAddress">
+                <!-- <p class="info" property="streetAddress">
+                  1412 1st Ave
+                </p> -->
+                <span property="addressLocality">Seattle</span>,
+                <span property="addressRegion">WA</span>
+                <span property="postalCode">98052</span>
+              </address>
+            </section>
+            <aside class="span-3 h4">
+              $8.00
+            </aside>
+          </div>
+        </li>
+      </ul>
+    </section>
   </body>
 </html>
