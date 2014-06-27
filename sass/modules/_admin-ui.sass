@@ -81,15 +81,15 @@
 //---------------admin reports----------------
 
 .admin-reports
-  margin-left: 1.78%
-  margin-top: 2%
+  margin-top: 1%
 
 .chart
   height: 30em
   border: 1px
   border-color: darkgray
   border-style: solid
-  @include span-columns(10)
+  width: 80%
+  float: left
   &.omega-right
     margin-right: 0
   @include media(max-width em(768))
@@ -97,7 +97,8 @@
 
 .report-breakdown
   display: block
-  @include span-columns(2)
+  float: left
+  width: 20%
   @include media(max-width em(768))
     @include span-columns(12)
 
@@ -110,7 +111,6 @@
   float: left
   @include media(max-width em(768))
     width: 20%
-
 
 .numeric-value
   text-align: center
@@ -128,3 +128,10 @@
   margin-top: 0
   @include media(max-width em(600))
     font-size: 0.75em
+
+.recent-donors-list
+  text-align: center
+  margin-top: 0.5em
+  background-color: lightgray
+  border: 1px
+  border-color: darkgray
