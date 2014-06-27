@@ -33803,6 +33803,7 @@ module.exports = function(app) {
                     $scope.count = 0;
                     $scope.totalCash = 0;
                     $scope.average = 0;
+
                     for(var i = 0; i < deets.length; i++) {
                         $scope.count = ++$scope.count;
                         $scope.totalCash = deets[i].donationAmount + $scope.totalCash;
