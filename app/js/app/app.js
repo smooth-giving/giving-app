@@ -14,6 +14,7 @@ require("./controllers/thanksController.js")(smoothApp);
 require("./controllers/dashboardController.js")(smoothApp);
 require("./controllers/reportsController.js")(smoothApp);
 require("./controllers/reportController.js")(smoothApp);
+require("./controllers/signinController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -41,7 +42,11 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/thanks.html",
             controller: "ThanksController"
         })
+        .when("/signin", {
+            templateUrl: "views/signin.html",
+            controler: "SigninController"
+        })
         .otherwise({
-            //redirectTo: "/"
+            redirectTo: "/"
         });
 }]); // end smoothApp.config

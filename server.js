@@ -13,7 +13,7 @@ var hbs = require("express-hbs");
 var port = process.env.PORT || 8000;
 
 var app = express();
-//var jwtauth = require("./api/auth/jwtauth")(app);
+var jwtauth = require("./api/auth/jwtauth")(app);
 
 // configuration ================================
 var db = require("./api/db.js");
@@ -28,7 +28,7 @@ require('./api/auth/passport')(passport);
 
 //var port = process.env.PORT || 3000;
 var secret = process.env.SECRET || "change-this-now";
-//app.set(port);
+app.set("jwtTokenSecret", process.env.JWT_SECRET || "changemechangeme");
 //app.set('port', process.env.PORT || 3000);
 app.set(secret);
 
@@ -36,8 +36,8 @@ app.use(bodyParser());
 app.use(morgan());
 app.use(cookieParser());
 app.use(express.static(__dirname + '/app/dist/'));
-app.set("views", __dirname + "/app/js/app/templates/");
-app.set("view engine", hbs);
+//app.set("views", __dirname + "/app/js/app/templates/");
+//app.set("view engine", hbs);
 
 // required for passport
 app.use(session({ secret: "ilovepugs"}));
@@ -49,7 +49,7 @@ app.use(flash());
 
 // routes =======================================
 require("./api/routes/adminRoutes.js")(app, passport);
-require("./api/routes/donorRoutes.js")(app);
+require("./api/routes/donorRoutes.js")(app, passport, jwtauth.auth);
 require("./api/routes/homeRoutes.js")(app);
 // start app ====================================
 

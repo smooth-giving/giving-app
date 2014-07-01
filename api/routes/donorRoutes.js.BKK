@@ -1,7 +1,7 @@
 /*jslint node: true */
 var Donor = require("../models/Donor");
 
-module.exports = function(app, passport, jwtauth) {
+module.exports = function(app) {
 
     app.get("/api/donors/:id", function(req, res) {
         console.log("top of the get request");
@@ -17,20 +17,18 @@ module.exports = function(app, passport, jwtauth) {
         });
     }); //end app.get("api/donors/:id:")
 
-    app.get("/api/donors", jwtauth, function(req, res) {
+    app.get("/api/donors", function(req, res) {
         res.setHeader("Content-Type", "application/json");
         Donor.find({}, function(err, donors) {
             if(err) {
                 res.send(err);
-                return false;
             }
             res.send(donors);
         });
     }); //end app.get("api/donors")
 
     app.post("/api/donors", function(req, res) {
-        res.setHeader("Content-Type", "application/json");
-        var donor = new Donor({
+        Donor.create({
             fName : req.body.fName,
             lName : req.body.lName,
             address : req.body.address,
@@ -42,14 +40,18 @@ module.exports = function(app, passport, jwtauth) {
             donationAmount : req.body.donationAmount,
             created : Date.now(),
             done : false
-        });
-        donor.save(function(err, resDonor) {
+        }, function(err, donor) {
             if(err) {
-                res.send(500, {error: err});
-                return false;
+                res.send(err);
             }
-            res.send(resDonor);
-        }); // end donor.save
+            Donor.find(function(err, donors) {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(donors);
+            });
+
+        });
     }); // end app.post("api/donors")
 
 }; // end module.exports

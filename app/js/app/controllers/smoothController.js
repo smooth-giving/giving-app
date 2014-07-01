@@ -2,8 +2,9 @@
 "use strict";
 
 module.exports = function(app) {
-    app.controller("SmoothController", function($scope, $http, $location) {
+    app.controller("SmoothController", function($scope, $http, $location, $cookies) {
         // first thing in the success function, check the status, if it is 401 send them else where
+            $http.defaults.headers.common["jwt"] = $cookies.jwt;
             $http({
                 method: "GET",
                 url: "/api/donors"
