@@ -33878,6 +33878,7 @@ module.exports = function(app) {
             $http({
                 method: "GET",
                 url: "/api/admins",
+                data: {}
             })
             .success(function(data) {
                 $cookies.jwt = data.jwt;

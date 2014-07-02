@@ -11,7 +11,6 @@ var session = require("express-session");
 var flash = require("connect-flash");
 var hbs = require("express-hbs");
 var jwt = require("jwt-simple");
-var port = process.env.PORT || 8000;
 
 var app = express();
 var jwtauth = require("./api/auth/jwtauth")(app);
@@ -24,13 +23,9 @@ mongoose.connect(db.url, function(err) {
         console.log('you have not bowed to the Mongod');
     }
 });
-
-require('./api/auth/passport')(passport);
-
-//var port = process.env.PORT || 3000;
 var secret = process.env.SECRET || "change-this-now";
 app.set("jwtTokenSecret", process.env.JWT_SECRET || "changemechangeme");
-//app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 app.set(secret);
 
 app.use(bodyParser());
@@ -43,6 +38,7 @@ app.use(express.static(__dirname + '/app/dist/'));
 // required for passport
 app.use(session({ secret: "ilovepugs"}));
 app.use(passport.initialize());
+require('./api/auth/passport')(passport);
 app.use(passport.session());
 app.use(flash());
 
@@ -54,9 +50,10 @@ require("./api/routes/donorRoutes.js")(app, passport, jwtauth.auth);
 require("./api/routes/homeRoutes.js")(app);
 // start app ====================================
 
-app.listen(port);
-console.log("app started on port: " + port);
-
+var server = http.createServer(app);
+server.listen(app.get("port"), function() {
+    console.log("Server running on " + app.get("port"));
+});
 
 
 

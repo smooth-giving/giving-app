@@ -2,7 +2,7 @@
 "use strict";
 
 var BasicStrategy = require("passport-http").BasicStrategy;
-var DigestStrategy = require("passport-http").DigestSTrategy;
+var DigestStrategy = require("passport-http").DigestStrategy;
 var Admin = require("../models/Admin");
 
 module.exports = function(passport) {
