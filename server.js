@@ -10,6 +10,7 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var flash = require("connect-flash");
 var hbs = require("express-hbs");
+var jwt = require("jwt-simple");
 var port = process.env.PORT || 8000;
 
 var app = express();

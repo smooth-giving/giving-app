@@ -11,7 +11,7 @@ module.exports = function(passport) {
         passwordField : "password"
     },
     function(email, password, done) {
-        Admin.findOne({"local.email" : email}, function(err, admin) {
+        Admin.findOne({"basic.email" : email}, function(err, admin) {
             if(err) {
                 return done(err);
             }

@@ -5,7 +5,7 @@ var Admin = require("../models/Admin");
 
 module.exports = function(app, passport) {
     app.post("/api/admins", function(req, res) {
-        Admin.findOne({"local.email" : req.body.email}, function(err, admin) {
+        Admin.findOne({"basic.email" : req.body.email}, function(err, admin) {
             if(err) {
                 req.send(500, err);
                 return false;
@@ -16,8 +16,8 @@ module.exports = function(app, passport) {
             }
 
             var newAdmin = new Admin({});
-            newAdmin.local.email = req.body.email;
-            newAdmin.local.password = newAdmin.generateHash(req.body.password);
+            newAdmin.basic.email = req.body.email;
+            newAdmin.basic.password = newAdmin.generateHash(req.body.password);
 
             newAdmin.save(function(err, resNewAdmin) {
                 if(err) {
@@ -31,6 +31,7 @@ module.exports = function(app, passport) {
 
     app.get("/api/admins", passport.authenticate('basic', {session: false}),
         function(req, res) {
+            console.log(res);
             res.json({"jwt" : req.admin.createToken(app)});
         });
 }; // end module.exports
