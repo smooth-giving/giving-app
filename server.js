@@ -9,8 +9,6 @@ var morgan = require("morgan");
 var methodOverride = require("method-override");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
-var flash = require("connect-flash");
-var hbs = require("express-hbs");
 var jwt = require("jwt-simple");
 
 var app = express();
