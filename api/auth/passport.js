@@ -24,5 +24,6 @@ module.exports = function(passport) {
 
             return done(null, admin);
         }); // end Admin.findOne
-    })); // end passport.use
+    })); // end passport.use(basic)
 }; // end module.exports
+

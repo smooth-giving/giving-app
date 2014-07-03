@@ -32,7 +32,6 @@ module.exports = function(app, passport) {
     app.get("/api/admins", passport.authenticate('basic', {session: false}),
         function(req, res) {
             console.dir(app);
-            //console.log(res);
             res.json({"jwt" : req.admin.createToken(app)});
         });
 }; // end module.exports

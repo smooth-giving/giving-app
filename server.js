@@ -3,6 +3,7 @@ var express = require("express");
 var http = require("http");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var donorRoutes = require("./api/routes/donorRoutes");
 var passport = require("passport");
 var morgan = require("morgan");
 var methodOverride = require("method-override");
@@ -28,33 +29,26 @@ app.set("jwtTokenSecret", process.env.JWT_SECRET || "changemechangeme");
 app.set('port', process.env.PORT || 8000);
 app.set(secret);
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 app.use(morgan());
 app.use(cookieParser());
 app.use(express.static(__dirname + '/app/dist/'));
-//app.set("views", __dirname + "/app/js/app/templates/");
-//app.set("view engine", hbs);
 
 // required for passport
+require('./api/auth/passport')(passport);
 app.use(session({ secret: "ilovepugs"}));
 app.use(passport.initialize());
-require('./api/auth/passport')(passport);
 app.use(passport.session());
 app.use(flash());
 
-
-
 // routes =======================================
-require("./api/routes/adminRoutes.js")(app, passport);
-require("./api/routes/donorRoutes.js")(app, passport, jwtauth.auth);
-require("./api/routes/homeRoutes.js")(app);
-// start app ====================================
+require("./api/routes/donorRoutes")(app, passport, jwtauth.auth);
+require("./api/routes/adminRoutes")(app, passport);
+require("./api/routes/homeRoutes")(app);
 
+// start app ====================================
 var server = http.createServer(app);
 server.listen(app.get("port"), function() {
     console.log("Server running on " + app.get("port"));
 });
 
-
-
-//exports = module.exports = app;
