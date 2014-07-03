@@ -33691,6 +33691,8 @@ require("./controllers/thanksController.js")(smoothApp);
 require("./controllers/dashboardController.js")(smoothApp);
 require("./controllers/reportsController.js")(smoothApp);
 require("./controllers/reportController.js")(smoothApp);
+require("./controllers/signinController.js")(smoothApp);
+require("./controllers/signupController.js")(smoothApp);
 
 smoothApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -33718,11 +33720,19 @@ smoothApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/thanks.html",
             controller: "ThanksController"
         })
+        .when("/signin", {
+            templateUrl: "views/signin.html",
+            controler: "SigninController"
+        })
+        .when("/signup", {
+            templateUrl: "views/signup.html",
+            controller: "SignupController"
+        })
         .otherwise({
-            //redirectTo: "/"
+            redirectTo: "/"
         });
 }]); // end smoothApp.config
-},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":7,"./controllers/dashboardController.js":9,"./controllers/donateController.js":10,"./controllers/reportController.js":11,"./controllers/reportsController.js":12,"./controllers/smoothController.js":13,"./controllers/thanksController.js":14}],9:[function(require,module,exports){
+},{"./../../bower_components/angular-base64/angular-base64.js":1,"./../../bower_components/angular-cookies/angular-cookies.js":2,"./../../bower_components/angular-resource/angular-resource.js":3,"./../../bower_components/angular-route/angular-route.js":4,"./../../bower_components/angular/angular":5,"./../../bower_components/ng-stripe-payments/lib/ng-stripe-payments.js":7,"./controllers/dashboardController.js":9,"./controllers/donateController.js":10,"./controllers/reportController.js":11,"./controllers/reportsController.js":12,"./controllers/signinController.js":13,"./controllers/signupController.js":14,"./controllers/smoothController.js":15,"./controllers/thanksController.js":16}],9:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33867,8 +33877,54 @@ module.exports = function(app) {
 "use strict";
 
 module.exports = function(app) {
-    app.controller("SmoothController", function($scope, $http, $location) {
+    app.controller("SigninController", function($scope, $http, $base64, $cookies, $location, $log) {
+        $scope.signIn = function() {
+            $http.defaults.headers.common["Authentication"] = "Basic " + $base64.encode($scope.admin.email + ":" + $scope.admin.password);
+            $http({
+                method: "GET",
+                url: "/api/admins",
+                data: {}
+            })
+            .success(function(data) {
+                $cookies.jwt = data.jwt;
+                $location.path("/admin");
+            })
+            .error(function(data) {
+                console.log(data);
+            });
+        }
+    }); // end app.controller
+}; // end module.export
+},{}],14:[function(require,module,exports){
+/*jslint node: true */
+"use strict";
+
+module.exports = function(app) {
+    app.controller("SignupController", function($scope, $http, $base64, $cookies, $location, $log) {
+        $scope.admin = {"basic.email" : "", "basic.password" : ""};
+        $scope.signUp = function() {
+            $http({
+                method: "POST",
+                url: "/api/admins",
+                data: $scope.admin
+            })
+            .success(function(data, status, headers, config) {
+                $location.path("/signin");
+            })
+            .error(function(data) {
+                console.log(data);
+            });
+        }
+    }); // end app.controller
+}; // end module.export
+},{}],15:[function(require,module,exports){
+/*jslint node: true */
+"use strict";
+
+module.exports = function(app) {
+    app.controller("SmoothController", function($scope, $http, $location, $cookies) {
         // first thing in the success function, check the status, if it is 401 send them else where
+            $http.defaults.headers.common["jwt"] = $cookies.jwt;
             $http({
                 method: "GET",
                 url: "/api/donors"
@@ -33879,7 +33935,6 @@ module.exports = function(app) {
                     $location.path("/login");
                 }
                 $scope.donors = data;
-                console.dir(data);
             })
             .error(function(data, status, headers, config) {
                 console.log(data);
@@ -33899,11 +33954,10 @@ module.exports = function(app) {
             $scope.dashboard = function() {
                 $location.path("/dashboard");
             }
-
         });
 };
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33912,7 +33966,7 @@ module.exports = function(app) {
         $scope.message = "Thanks for the cash bro";
     });
 };// end module.exports
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
 
@@ -33927,4 +33981,4 @@ module.exports = function(app) {
         return donorFactory;
     });
 };
-},{}]},{},[8,9,10,11,12,13,14,15,7,6])
+},{}]},{},[8,9,10,11,12,13,14,15,16,17,7,6])
