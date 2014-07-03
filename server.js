@@ -40,7 +40,6 @@ require('./api/auth/passport')(passport);
 app.use(session({ secret: "ilovepugs"}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 // routes =======================================
 require("./api/routes/donorRoutes")(app, passport, jwtauth.auth);
