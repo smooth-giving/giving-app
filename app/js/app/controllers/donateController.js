@@ -15,7 +15,7 @@ module.exports = function(app) {
                 "donationAmount" : "",
                 "created" : ""
             };
-            $scope.amount = "50";
+            $scope.donor.donationAmount = "50";
             $scope.saveDonor = function() {
                 $http.post("/api/donors", $scope.donor)
                     .success(function(data, status, header, config) {

@@ -24,12 +24,12 @@
                         <span class="info full-width" property="email">{{donor.email}}</span>
                         <address property="address" typeof="PostalAddress">
                             <p class="info" property="streetAddress">{{donor.address}}</p>
-                            <span property="addressLocality">{{donor.city}}</span>,
+                            <span property="addressLocality">{{donor.city}}</span>
                             <span property="addressRegion">{{donor.state}}</span>
                             <span property="postalCode">{{donor.zipcode}}</span>
                         </address>
                     </article>
-                    <aside class="span-3 h4">{{donor.donationAmount}}</aside>
+                    <aside class="span-3 h4">{{donor.donationAmount | currency}}</aside>
                     <aside class="span-3 h4">{{donor.created | date: 'shortDate'}}</aside>
                 </div>
             <!-- </a> -->
