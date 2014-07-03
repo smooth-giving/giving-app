@@ -11,7 +11,7 @@ module.exports = function(app) {
                 data: $scope.admin
             })
             .success(function(data, status, headers, config) {
-                $location.path("/admin");
+                $location.path("/signin");
             })
             .error(function(data) {
                 console.log(data);

@@ -24,6 +24,9 @@ mongoose.connect(db.url, function(err) {
         console.log('you have not bowed to the Mongod');
     }
 });
+
+app.set("apiBase", "/api/");
+
 var secret = process.env.SECRET || "change-this-now";
 app.set("jwtTokenSecret", process.env.JWT_SECRET || "changemechangeme");
 app.set('port', process.env.PORT || 8000);

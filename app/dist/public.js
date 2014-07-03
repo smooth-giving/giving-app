@@ -33909,7 +33909,7 @@ module.exports = function(app) {
                 data: $scope.admin
             })
             .success(function(data, status, headers, config) {
-                $location.path("/admin");
+                $location.path("/signin");
             })
             .error(function(data) {
                 console.log(data);
@@ -33935,7 +33935,6 @@ module.exports = function(app) {
                     $location.path("/login");
                 }
                 $scope.donors = data;
-                console.dir(data);
             })
             .error(function(data, status, headers, config) {
                 console.log(data);
@@ -33955,7 +33954,6 @@ module.exports = function(app) {
             $scope.dashboard = function() {
                 $location.path("/dashboard");
             }
-
         });
 };
 
