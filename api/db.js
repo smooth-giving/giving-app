@@ -2,6 +2,6 @@
 module.exports = {
     //change depending on env.
 
-    //url: "mongodb://localhost/smooth"
-    url: process.env.MONGOLAB_URI
+    url: "mongodb://localhost/smooth"
+    //url: process.env.MONGOLAB_URI
 };
